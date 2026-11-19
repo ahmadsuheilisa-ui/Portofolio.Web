@@ -1,0 +1,3293 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Suheil Isaguzi — Misty Sage & Warm Cream Portfolio</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans (Headings & UI), DM Sans (Relaxed Reading), JetBrains Mono (Industrial Metrics) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"DM Sans"', '"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          borderRadius: {
+            bento: '24px',
+          },
+          maxWidth: {
+            bento: '1200px',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Restore saved Soft Dark Mode preference before paint to prevent flash -->
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('asi-theme-mode') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {
+        // Ignore restricted storage access
+      }
+    })();
+  </script>
+
+  <style>
+    /* ==========================================================================
+       MISTY SAGE & WARM CREAM — EYE-FRIENDLY DESIGN TOKENS (LIGHT DEFAULT)
+       ========================================================================== */
+    :root {
+      --bg-page: #FAF8F5;
+      --bg-card: #F3F0EA;
+      --bg-card-elevated: #FCFBF9;
+      --bg-nav: rgba(252, 251, 249, 0.84);
+      --border-soft: rgba(44, 48, 46, 0.08);
+      --border-hover: rgba(110, 136, 117, 0.36);
+
+      --text-primary: #2C302E;
+      --text-secondary: #5D6661;
+
+      --sage: #6E8875;
+      --sage-hover: #5A7361;
+      --sage-wash: #E8EFE9;
+      --sage-border: rgba(110, 136, 117, 0.28);
+
+      --sand: #B89B7A;
+      --sand-wash: #F3EBE0;
+      --sand-border: rgba(184, 155, 122, 0.34);
+
+      --grid-line: rgba(110, 136, 117, 0.065);
+      --glow-color: rgba(110, 136, 117, 0.11);
+      --card-shadow: 0 10px 30px -16px rgba(44, 48, 46, 0.075);
+      --card-shadow-hover: 0 20px 44px -18px rgba(44, 48, 46, 0.13);
+      --active-glow: 0 0 0 1px rgba(110, 136, 117, 0.38), 0 18px 42px -18px rgba(110, 136, 117, 0.24);
+      --svg-track: #E2DDD4;
+      --photo-frame: #FCFBF9;
+    }
+
+    /* ==========================================================================
+       SOFT DARK MODE — DEEP FOREST SLATE (GENTLE NIGHT COMFORT)
+       ========================================================================== */
+    html.dark {
+      --bg-page: #1A1E1C;
+      --bg-card: #222825;
+      --bg-card-elevated: #28302C;
+      --bg-nav: rgba(34, 40, 37, 0.86);
+      --border-soft: rgba(229, 233, 230, 0.08);
+      --border-hover: rgba(143, 174, 151, 0.36);
+
+      --text-primary: #E5E9E6;
+      --text-secondary: #A3B0A8;
+
+      --sage: #8FAE97;
+      --sage-hover: #A2C0A9;
+      --sage-wash: rgba(143, 174, 151, 0.14);
+      --sage-border: rgba(143, 174, 151, 0.3);
+
+      --sand: #CBB191;
+      --sand-wash: rgba(203, 177, 145, 0.13);
+      --sand-border: rgba(203, 177, 145, 0.28);
+
+      --grid-line: rgba(143, 174, 151, 0.055);
+      --glow-color: rgba(143, 174, 151, 0.12);
+      --card-shadow: 0 14px 34px -18px rgba(0, 0, 0, 0.45);
+      --card-shadow-hover: 0 24px 48px -18px rgba(0, 0, 0, 0.58);
+      --active-glow: 0 0 0 1px rgba(143, 174, 151, 0.38), 0 18px 44px -18px rgba(143, 174, 151, 0.2);
+      --svg-track: #313B36;
+      --photo-frame: #2D3631;
+    }
+
+    /* Smooth 0.45s ease theme transitions across surfaces & text */
+    body,
+    .bento-card,
+    .bento-elevated,
+    .floating-nav,
+    .theme-smooth {
+      transition:
+        background-color 0.45s ease,
+        color 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.35s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    /* Subtle Geometric Engineering Blueprint Grid Layer */
+    .blueprint-grid {
+      background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse 85% 75% at 50% 28%, black 35%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 28%, black 35%, transparent 100%);
+    }
+
+    /* Bento Grid Surfaces (Consistent 24px border-radius) */
+    .bento-card {
+      position: relative;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+    }
+
+    .bento-elevated {
+      position: relative;
+      background-color: var(--bg-card-elevated);
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+    }
+
+    /* Soft cursor-reactive warm sage ambient glow inside tiles */
+    .bento-card::before,
+    .bento-elevated::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        480px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--glow-color),
+        transparent 62%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bento-card:hover::before,
+    .bento-elevated:hover::before {
+      opacity: 1;
+    }
+
+    .bento-hover:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-hover);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .bento-card > *,
+    .bento-elevated > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .bento-featured-sage {
+      border-color: var(--sage-border);
+      box-shadow: var(--active-glow);
+    }
+
+    .bento-featured-sage:hover {
+      transform: translateY(-3px);
+      border-color: var(--sage);
+    }
+
+    /* Glassmorphic Floating Pill Navbar */
+    .floating-nav {
+      background-color: var(--bg-nav);
+      border: 1px solid var(--border-soft);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 12px 32px -14px rgba(44, 48, 46, 0.11);
+    }
+
+    /* Semantic Utility Helpers */
+    .text-main { color: var(--text-primary); }
+    .text-muted { color: var(--text-secondary); }
+    .text-sage { color: var(--sage); }
+    .text-sand { color: var(--sand); }
+
+    .bg-sage { background-color: var(--sage); }
+    .bg-sage:hover { background-color: var(--sage-hover); }
+    .bg-sage-wash { background-color: var(--sage-wash); }
+    .bg-sand-wash { background-color: var(--sand-wash); }
+    .border-soft { border-color: var(--border-soft); }
+    .border-sage-soft { border-color: var(--sage-border); }
+    .border-sand-soft { border-color: var(--sand-border); }
+
+    /* ==========================================================================
+       4-PHOTO 3D ORBITING & ROTATING SHOWCASE STYLES
+       ========================================================================== */
+    .orbit-stage {
+      position: relative;
+      perspective: 1100px;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: grab;
+    }
+
+    .orbit-stage:active {
+      cursor: grabbing;
+    }
+
+    .orbit-photo-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 124px;
+      height: 154px;
+      margin-left: -62px;
+      margin-top: -77px;
+      border-radius: 20px;
+      padding: 5px;
+      background-color: var(--photo-frame);
+      border: 1.5px solid var(--sage-border);
+      box-shadow: 0 16px 32px -14px rgba(44, 48, 46, 0.22);
+      will-change: transform, opacity, filter;
+      transform-style: preserve-3d;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+      .orbit-photo-card {
+        width: 136px;
+        height: 168px;
+        margin-left: -68px;
+        margin-top: -84px;
+      }
+    }
+
+    .orbit-photo-card.is-front {
+      border-color: var(--sage);
+      box-shadow: 0 22px 44px -16px rgba(110, 136, 117, 0.42), 0 0 0 2px var(--sage-wash);
+    }
+
+    .orbit-photo-img {
+      filter: saturate(0.9) contrast(0.97) sepia(0.06);
+      transition: filter 0.35s ease, transform 0.45s ease;
+    }
+
+    .orbit-photo-card.is-front .orbit-photo-img {
+      filter: saturate(0.96) contrast(1) sepia(0.03);
+    }
+
+    /* Scroll Reveal Fade-Up */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Keyframe Animations */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spinSlowReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    @keyframes softPing {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.55); opacity: 0.25; }
+    }
+    @keyframes blinkCaret {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes dashGlide {
+      to { stroke-dashoffset: -44; }
+    }
+    @keyframes eqCalm {
+      0%, 100% { transform: scaleY(0.25); }
+      50% { transform: scaleY(1); }
+    }
+    @keyframes footballBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      45% { transform: translateY(-9px) rotate(170deg); }
+      75% { transform: translateY(-2px) rotate(280deg); }
+    }
+    @keyframes toastRise {
+      from { opacity: 0; transform: translateY(14px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .animate-spin-slow { animation: spinSlow 28s linear infinite; }
+    .animate-spin-slow-rev { animation: spinSlowReverse 36s linear infinite; }
+    .animate-soft-ping { animation: softPing 2.4s ease-in-out infinite; }
+    .animate-caret { animation: blinkCaret 1s steps(2, start) infinite; }
+    .animate-dash-glide { animation: dashGlide 2.6s linear infinite; }
+    .toast-enter { animation: toastRise 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+    /* Hobby Micro-Animations */
+    .eq-bar {
+      transform-origin: bottom center;
+      animation: eqCalm 1.15s ease-in-out infinite;
+    }
+    .eq-paused .eq-bar {
+      animation-play-state: paused;
+      transform: scaleY(0.28);
+    }
+    .hobby-music-pill:hover .eq-paused .eq-bar {
+      animation-play-state: running;
+    }
+    .hobby-football-pill:hover .football-svg,
+    .football-bouncing {
+      animation: footballBounce 0.95s cubic-bezier(0.34, 1.45, 0.64, 1) infinite;
+    }
+
+    /* Tactile Switch Transition */
+    .sage-switch-track { transition: background-color 0.3s ease; }
+    .sage-switch-thumb { transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1); }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(110, 136, 117, 0.3);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(110, 136, 117, 0.55);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-[#6E8875]/20 selection:text-[#2C302E] dark:selection:bg-[#8FAE97]/25 dark:selection:text-[#E5E9E6]">
+
+  <!-- ======================================================================
+       THIN SERENE READING PROGRESS BAR AT TOP OF VIEWPORT
+       ====================================================================== -->
+  <div class="fixed top-0 left-0 right-0 z-50 h-[3px] pointer-events-none" style="background: var(--border-soft);">
+    <div id="scroll-progress-bar" class="h-full w-0 transition-[width] duration-75" style="background: linear-gradient(90deg, var(--sage), var(--sand));"></div>
+  </div>
+
+  <!-- ======================================================================
+       MULTI-LAYER ORGANIC PARALLAX BACKGROUND (BLOBS + BLUEPRINT GRID + GEARS)
+       ====================================================================== -->
+  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+    <!-- Subtle Engineering Blueprint Grid -->
+    <div data-parallax-speed="-0.03" class="blueprint-grid absolute inset-0"></div>
+
+    <!-- Ambient Soft Sage & Warm Cream Blobs -->
+    <div data-parallax-speed="-0.09" class="absolute -top-36 -left-24 w-[520px] h-[520px] rounded-full blur-[125px] opacity-55 dark:opacity-25" style="background: radial-gradient(circle, #CFE0D3 0%, transparent 70%);"></div>
+    <div data-parallax-speed="0.07" class="absolute top-[36%] -right-32 w-[480px] h-[480px] rounded-full blur-[130px] opacity-50 dark:opacity-20" style="background: radial-gradient(circle, #E9DAC6 0%, transparent 70%);"></div>
+    <div data-parallax-speed="-0.06" class="absolute bottom-[-140px] left-[22%] w-[520px] h-[520px] rounded-full blur-[130px] opacity-45 dark:opacity-20" style="background: radial-gradient(circle, #D4E2D7 0%, transparent 70%);"></div>
+
+    <!-- Parallax Precision Engineering Gear SVG (Top Right) -->
+    <div data-parallax-speed="-0.14" class="hidden md:block absolute top-14 right-[-80px] opacity-[0.15] dark:opacity-[0.11]" style="color: var(--sage);">
+      <svg width="360" height="360" viewBox="0 0 240 240" fill="none">
+        <g id="parallax-gear-a" style="transform-origin: 120px 120px;">
+          <circle cx="120" cy="120" r="88" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 8" />
+          <circle cx="120" cy="120" r="64" stroke="currentColor" stroke-width="1.4" />
+          <circle cx="120" cy="120" r="24" stroke="currentColor" stroke-width="1.4" />
+          <path d="M120 18 V36 M120 204 V222 M18 120 H36 M204 120 H222 M48 48 L60 60 M180 180 L192 192 M192 48 L180 60 M60 180 L48 192" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+          <path d="M120 56 V96 M120 144 V184 M56 120 H96 M144 120 H184" stroke="currentColor" stroke-width="1.2" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Secondary Precision Gear & Contour Arc (Mid Left) -->
+    <div data-parallax-speed="0.11" class="hidden lg:block absolute top-[540px] left-[-70px] opacity-[0.14] dark:opacity-[0.10]" style="color: var(--sand);">
+      <svg width="280" height="280" viewBox="0 0 200 200" fill="none">
+        <g id="parallax-gear-b" style="transform-origin: 100px 100px;">
+          <circle cx="100" cy="100" r="76" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 7" />
+          <circle cx="100" cy="100" r="46" stroke="currentColor" stroke-width="1.3" />
+          <circle cx="100" cy="100" r="14" stroke="currentColor" stroke-width="1.3" />
+          <path d="M100 12 V26 M100 174 V188 M12 100 H26 M174 100 H188 M38 38 L48 48 M152 152 L162 162 M162 38 L152 48 M48 152 L38 162" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" />
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       FLOATING GLASSMORPHIC PILL NAVBAR (CENTERED, ID/EN + LIGHT/SOFT DARK)
+       ====================================================================== -->
+  <header class="sticky top-4 z-40 px-4 sm:px-6">
+    <div class="max-w-bento mx-auto flex justify-center">
+      <div class="floating-nav w-full lg:w-auto rounded-full px-3 sm:px-4 py-2 flex items-center justify-between gap-3 sm:gap-6">
+        <!-- Brand Monogram -->
+        <a href="#profil" class="flex items-center gap-2.5 pl-1 group shrink-0">
+          <span class="w-9 h-9 rounded-full bg-sage-wash border border-sage-soft flex items-center justify-center font-display font-bold text-sm text-sage group-hover:scale-105 transition-transform">
+            ASI
+          </span>
+          <span class="hidden sm:inline font-display font-bold text-sm tracking-tight text-main">
+            Ahmad Suheil
+          </span>
+        </a>
+
+        <!-- Desktop Anchor Links -->
+        <nav class="hidden md:flex items-center gap-1" aria-label="Navigasi Utama">
+          <a href="#profil" data-nav-link="profil" data-i18n="nav.profil" class="top-nav-link px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all">Profil</a>
+          <a href="#pengalaman" data-nav-link="pengalaman" data-i18n="nav.pengalaman" class="top-nav-link px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all">Pengalaman</a>
+          <a href="#process-lab" data-nav-link="process-lab" data-i18n="nav.processLab" class="top-nav-link px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all">Process Lab</a>
+          <a href="#kompetensi" data-nav-link="kompetensi" data-i18n="nav.kompetensi" class="top-nav-link px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all">Kompetensi</a>
+          <a href="#kontak" data-nav-link="kontak" data-i18n="nav.kontak" class="top-nav-link px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all">Kontak</a>
+        </nav>
+
+        <!-- Right Controls: ID/EN Switcher + Light/Soft Dark Toggle + Mobile Menu -->
+        <div class="flex items-center gap-2 shrink-0">
+          <!-- Bilingual Switcher -->
+          <div class="inline-flex items-center p-1 rounded-full border border-soft" style="background: var(--bg-card);" role="group" aria-label="Pilih Bahasa">
+            <button id="lang-id-btn" type="button" class="px-2.5 py-1 rounded-full font-mono text-[11px] font-semibold transition-all">ID</button>
+            <button id="lang-en-btn" type="button" class="px-2.5 py-1 rounded-full font-mono text-[11px] font-semibold transition-all">EN</button>
+          </div>
+
+          <!-- Light / Soft Dark Mode Toggle -->
+          <button id="theme-toggle-btn" type="button" aria-label="Ubah Tema Light atau Soft Dark Mode" title="Light / Soft Dark Mode" class="relative w-10 h-10 rounded-full border border-soft flex items-center justify-center text-sage hover:border-sage-soft transition-all active:scale-95" style="background: var(--bg-card);">
+            <svg id="icon-sun" class="w-[18px] h-[18px] transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+              <circle cx="12" cy="12" r="4.2" />
+              <path stroke-linecap="round" d="M12 2.5v2M12 19.5v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2.5 12h2M19.5 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" />
+            </svg>
+            <svg id="icon-moon" class="w-[18px] h-[18px] hidden transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A8.5 8.5 0 1111.2 3a6.7 6.7 0 009.8 9.8z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-btn" type="button" aria-label="Buka Menu" class="md:hidden w-10 h-10 rounded-full border border-soft flex items-center justify-center text-main" style="background: var(--bg-card);">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 7h14M5 12h14M5 17h14" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden max-w-bento mx-auto mt-2.5">
+      <div class="floating-nav rounded-[24px] p-3 flex flex-col gap-1">
+        <a href="#profil" data-i18n="nav.profil" class="mobile-nav-link px-4 py-2.5 rounded-2xl text-sm font-medium text-main hover:bg-sage-wash transition-colors">Profil</a>
+        <a href="#pengalaman" data-i18n="nav.pengalaman" class="mobile-nav-link px-4 py-2.5 rounded-2xl text-sm font-medium text-main hover:bg-sage-wash transition-colors">Pengalaman</a>
+        <a href="#process-lab" data-i18n="nav.processLab" class="mobile-nav-link px-4 py-2.5 rounded-2xl text-sm font-medium text-main hover:bg-sage-wash transition-colors">Process Lab</a>
+        <a href="#kompetensi" data-i18n="nav.kompetensi" class="mobile-nav-link px-4 py-2.5 rounded-2xl text-sm font-medium text-main hover:bg-sage-wash transition-colors">Kompetensi</a>
+        <a href="#kontak" data-i18n="nav.kontak" class="mobile-nav-link px-4 py-2.5 rounded-2xl text-sm font-medium text-main hover:bg-sage-wash transition-colors">Kontak</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-bento mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-20 space-y-20 sm:space-y-28">
+
+    <!-- ====================================================================
+         SECTION 1: HERO BENTO GRID (LEFT INTRO + RIGHT 4-PHOTO 3D ORBITING SHOWCASE + 4 KPI CARDS)
+         ==================================================================== -->
+    <section id="profil" class="scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+
+        <!-- Left Large Hero Bento Card (6 cols) -->
+        <div class="lg:col-span-6 bento-elevated bento-hover p-7 sm:p-9 flex flex-col justify-between gap-7 reveal">
+          <div class="space-y-5">
+            <!-- Live Pulsing Status Pill -->
+            <a href="#pengalaman" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-sage-wash border border-sage-soft text-sage font-mono text-[11px] sm:text-xs font-medium hover:opacity-90 transition-opacity">
+              <span class="relative flex h-2.5 w-2.5 shrink-0">
+                <span class="animate-soft-ping absolute inline-flex h-full w-full rounded-full" style="background-color: var(--sage);"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5" style="background-color: var(--sage);"></span>
+              </span>
+              <span data-i18n="hero.status">Magang Aktif • PT Bakrie Pipe Industries — Warehouse Gudang Teknik</span>
+            </a>
+
+            <!-- Name & Typing Role Subtitle -->
+            <div class="space-y-3">
+              <h1 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight text-main leading-[1.12]">
+                Ahmad Suheil <span class="text-sage">Isaguzi</span>
+              </h1>
+              <div class="min-h-[1.8rem] flex items-center gap-1 font-mono text-xs sm:text-sm text-sand font-semibold">
+                <span class="text-sage opacity-70">&gt;</span>
+                <span id="typing-role-text">Industrial Engineer</span>
+                <span class="animate-caret inline-block w-[2px] h-4 rounded-full" style="background: var(--sand);"></span>
+              </div>
+            </div>
+
+            <!-- Concise Warm Bio from CV -->
+            <p data-i18n="hero.bio" class="text-[15px] sm:text-base text-muted leading-[1.78]">
+              Lulusan S1 Teknik Industri Universitas Darma Persada yang memiliki kemampuan berpikir analitis, pemecahan masalah, dan pendekatan kerja yang sistematis. Disiplin, mudah beradaptasi, serta siap memberikan kontribusi nyata dalam meningkatkan efisiensi, kualitas, dan produktivitas perusahaan — baik dalam tim maupun secara mandiri.
+            </p>
+
+            <!-- Compact Highlight Chips -->
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="px-3 py-1 rounded-full font-mono text-[11px] bg-sand-wash text-sand border border-sand-soft">Bekasi, Jawa Barat</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[11px] bg-sage-wash text-sage border border-sage-soft">S1 Teknik Industri • IPK 3.31</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[11px] border border-soft text-muted" style="background: var(--bg-card);">5R/5S • Lean • Outbound</span>
+            </div>
+          </div>
+
+          <!-- Calm Tactile CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#pengalaman" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-[#FCFBF9] dark:text-[#161B18] bg-sage shadow-sm transition-all active:scale-[0.98]">
+              <span data-i18n="hero.ctaExp">Jelajahi Pengalaman</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+
+            <a href="#kontak" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-sage bg-sage-wash border border-sage-soft hover:opacity-90 transition-all active:scale-[0.98]">
+              <span data-i18n="hero.ctaContact">Hubungi Saya</span>
+            </a>
+
+            <button type="button" data-copy-text="ahmadsuheilisa@gmail.com" class="copy-trigger inline-flex items-center gap-2 px-4 py-3 rounded-full text-sm font-medium text-main border border-soft hover:border-sage-soft transition-all active:scale-[0.98]" style="background: var(--bg-card);">
+              <svg class="w-4 h-4 text-sand" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.9">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span data-i18n="hero.ctaCopyEmail">Salin Email</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             RIGHT LARGE HERO BENTO CARD — 4-PHOTO 3D ORBITING & ROTATING SHOWCASE
+             ================================================================ -->
+        <div class="lg:col-span-6 bento-card p-5 sm:p-7 flex flex-col justify-between gap-4 reveal" style="transition-delay: 80ms;">
+
+          <!-- Top Header: Rotation Style Pill Toggle + Upload Photos Button -->
+          <div class="flex flex-wrap items-center justify-between gap-2.5">
+            <!-- Mode Switcher: Orbit Keliling vs 3D Carousel 360° -->
+            <div class="inline-flex items-center p-1 rounded-full border border-soft" style="background: var(--bg-card-elevated);" role="group" aria-label="Pilih Gaya Putar 4 Foto">
+              <button id="orbit-mode-btn" type="button" class="px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all" data-i18n="orbit.modeOrbit">Orbit Keliling</button>
+              <button id="carousel-mode-btn" type="button" class="px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all" data-i18n="orbit.modeCarousel">3D Carousel 360°</button>
+            </div>
+
+            <!-- Upload 4 Photos Drawer Toggle -->
+            <button id="toggle-upload-tray-btn" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-semibold text-sage bg-sage-wash border border-sage-soft hover:opacity-90 transition-all active:scale-95">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span data-i18n="orbit.uploadBtn">Ganti 4 Foto</span>
+            </button>
+          </div>
+
+          <!-- Collapsible Upload Control Bar (Batch up to 4 photos OR Individual Slots 1–4 + Reset) -->
+          <div id="upload-tray-panel" class="hidden rounded-[18px] p-3.5 border border-sage-soft bg-sage-wash space-y-2.5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="font-mono text-[11px] font-semibold text-sage" data-i18n="orbit.uploadTitle">Unggah Foto Sendiri (Pratinjau Langsung)</span>
+              <div class="flex items-center gap-2">
+                <label for="batch-photo-upload" class="cursor-pointer px-3 py-1 rounded-full text-[11px] font-semibold text-[#FCFBF9] dark:text-[#161B18] bg-sage transition-colors" data-i18n="orbit.uploadAll">Pilih 1–4 Foto Sekaligus</label>
+                <input id="batch-photo-upload" type="file" accept="image/*" multiple class="hidden" />
+                <button id="reset-photos-btn" type="button" class="px-2.5 py-1 rounded-full font-mono text-[10.5px] text-sand bg-sand-wash border border-sand-soft hover:opacity-85 transition-opacity" data-i18n="orbit.reset">Reset</button>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <label class="cursor-pointer px-2.5 py-1.5 rounded-xl border border-soft text-center text-[11px] font-medium text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card-elevated);">
+                <span data-i18n="orbit.slot1">Slot 1 • Profil</span>
+                <input type="file" accept="image/*" data-slot-input="0" class="slot-photo-input hidden" />
+              </label>
+              <label class="cursor-pointer px-2.5 py-1.5 rounded-xl border border-soft text-center text-[11px] font-medium text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card-elevated);">
+                <span data-i18n="orbit.slot2">Slot 2 • BPI</span>
+                <input type="file" accept="image/*" data-slot-input="1" class="slot-photo-input hidden" />
+              </label>
+              <label class="cursor-pointer px-2.5 py-1.5 rounded-xl border border-soft text-center text-[11px] font-medium text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card-elevated);">
+                <span data-i18n="orbit.slot3">Slot 3 • Logistik</span>
+                <input type="file" accept="image/*" data-slot-input="2" class="slot-photo-input hidden" />
+              </label>
+              <label class="cursor-pointer px-2.5 py-1.5 rounded-xl border border-soft text-center text-[11px] font-medium text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card-elevated);">
+                <span data-i18n="orbit.slot4">Slot 4 • Kampus</span>
+                <input type="file" accept="image/*" data-slot-input="3" class="slot-photo-input hidden" />
+              </label>
+            </div>
+          </div>
+
+          <!-- 3D Orbiting Stage (Interactive Drag, Click-to-Front, Hover Auto-Pause, Lightbox) -->
+          <div id="orbit-stage" class="orbit-stage w-full h-[335px] sm:h-[365px] rounded-[20px] border border-soft overflow-hidden" style="background: radial-gradient(circle at 50% 48%, var(--sage-wash) 0%, var(--bg-card-elevated) 68%);">
+            <!-- Concentric Misty Sage Dotted Orbital Rings -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 480 365" fill="none" aria-hidden="true">
+              <ellipse cx="240" cy="182" rx="196" ry="118" stroke="var(--sage)" stroke-opacity="0.22" stroke-width="1.2" stroke-dasharray="5 8" />
+              <ellipse cx="240" cy="182" rx="146" ry="86" stroke="var(--sand)" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="3 7" />
+            </svg>
+
+            <!-- Central Decorative Emblem & Rotating Circular SVG Text Ring (z-index: 22 sits between rear & front cards) -->
+            <div id="orbit-center-emblem" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-44 sm:h-44 flex items-center justify-center pointer-events-none transition-opacity duration-500" style="z-index: 22;">
+              <svg class="w-full h-full animate-spin-slow" viewBox="0 0 200 200" aria-hidden="true">
+                <defs>
+                  <path id="asiOrbitTextPath" d="M 100,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
+                </defs>
+                <text fill="var(--sage)" fill-opacity="0.72" style="font-family: 'JetBrains Mono', monospace; font-size: 8.6px; letter-spacing: 2.25px; font-weight: 600;">
+                  <textPath href="#asiOrbitTextPath" startOffset="0%">
+                    AHMAD SUHEIL ISAGUZI • INDUSTRIAL ENGINEER • WAREHOUSE &amp; LEAN •
+                  </textPath>
+                </text>
+              </svg>
+              <!-- Frosted Center Monogram Emblem -->
+              <div class="absolute w-20 h-20 sm:w-22 sm:h-22 rounded-full border border-sage-soft shadow-sm flex flex-col items-center justify-center backdrop-blur-md" style="background: var(--bg-nav);">
+                <span class="font-display font-extrabold text-xl sm:text-2xl text-sage tracking-tight leading-none">ASI</span>
+                <span class="font-mono text-[8.5px] uppercase tracking-[0.16em] text-sand mt-1">BPI • S.T.</span>
+              </div>
+            </div>
+
+            <!-- 4 Orbiting Photo Cards Container (Populated by JS) -->
+            <div id="orbit-cards-layer" class="absolute inset-0"></div>
+
+            <!-- Subtle Drag / Hover Hint Pill -->
+            <div id="orbit-status-hint" class="absolute top-3 left-3 z-40 px-2.5 py-1 rounded-full font-mono text-[10px] text-muted border border-soft backdrop-blur-md pointer-events-none" style="background: var(--bg-nav);">
+              <span data-i18n="orbit.dragHint">Geser atau klik foto • 2x klik untuk perbesar</span>
+            </div>
+          </div>
+
+          <!-- Live Spotlight Caption Bar + Mini Tactile Controls -->
+          <div class="space-y-3">
+            <!-- Active Front Photo Caption -->
+            <div class="rounded-[18px] px-4 py-3 border border-sage-soft bg-sage-wash flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <span id="orbit-caption-index" class="font-mono text-[10.5px] font-semibold px-2 py-0.5 rounded-full text-[#FCFBF9] dark:text-[#161B18] bg-sage">01 / 04</span>
+                  <h2 id="orbit-caption-title" class="font-display font-bold text-sm text-main truncate">Profil Profesional</h2>
+                </div>
+                <p id="orbit-caption-sub" class="text-xs text-muted mt-1 truncate">Industrial Engineer — Ahmad Suheil Isaguzi, S.T.</p>
+              </div>
+              <button id="open-lightbox-btn" type="button" aria-label="Perbesar Foto" title="Lihat Lightbox" class="shrink-0 w-9 h-9 rounded-full border border-sage-soft flex items-center justify-center text-sage hover:scale-105 transition-transform" style="background: var(--bg-card-elevated);">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Mini Rotation Controls: Prev, Play/Pause, Reverse, Speed, Next -->
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5">
+                <button id="orbit-prev-btn" type="button" aria-label="Foto Sebelumnya" class="w-8 h-8 rounded-full border border-soft flex items-center justify-center text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card-elevated);">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button id="orbit-play-btn" type="button" class="inline-flex items-center gap-1.5 px-3 h-8 rounded-full border border-sage-soft bg-sage-wash text-sage font-mono text-[11px] font-semibold hover:opacity-90 transition-opacity">
+                  <span id="orbit-play-label">Pause</span>
+                </button>
+                <button id="orbit-next-btn" type="button" aria-label="Foto Berikutnya" class="w-8 h-8 rounded-full border border-soft flex items-center justify-center text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card-elevated);">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+
+              <div class="flex items-center gap-1.5">
+                <button id="orbit-reverse-btn" type="button" class="inline-flex items-center gap-1 px-3 h-8 rounded-full border border-soft text-[11px] font-mono text-muted hover:text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card-elevated);">
+                  <span>⇄</span>
+                  <span data-i18n="orbit.reverse">Balik Arah</span>
+                </button>
+                <button id="orbit-speed-btn" type="button" class="inline-flex items-center gap-1 px-3 h-8 rounded-full border border-sand-soft bg-sand-wash text-sand text-[11px] font-mono font-medium hover:opacity-90 transition-opacity">
+                  <span id="orbit-speed-label">Pelan</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: 4 KPI Bento Stat Cards (Animated Count-Up) -->
+        <div id="kpi-grid" class="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <!-- KPI 1: IPK 3.31 / 4.00 -->
+          <div class="bento-card bento-hover p-6 sm:p-7 flex flex-col justify-between gap-2 reveal">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-muted" data-i18n="kpi.k1Label">IPK S1 Teknik Industri</span>
+            <div class="flex items-baseline gap-1.5">
+              <span class="kpi-counter font-display font-extrabold text-3xl sm:text-4xl text-sage" data-target="3.31" data-decimals="2">0.00</span>
+              <span class="font-mono text-xs text-muted">/ 4.00</span>
+            </div>
+            <p class="text-xs text-muted" data-i18n="kpi.k1Sub">Universitas Darma Persada</p>
+          </div>
+
+          <!-- KPI 2: 4 Pengalaman Kerja -->
+          <div class="bento-card bento-hover p-6 sm:p-7 flex flex-col justify-between gap-2 reveal" style="transition-delay: 70ms;">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-muted" data-i18n="kpi.k2Label">Pengalaman Kerja &amp; Magang</span>
+            <div class="flex items-baseline gap-1.5">
+              <span class="kpi-counter font-display font-extrabold text-3xl sm:text-4xl text-sand" data-target="4" data-decimals="0">0</span>
+              <span class="font-mono text-xs text-muted" data-i18n="kpi.k2Unit">Peran</span>
+            </div>
+            <p class="text-xs text-muted" data-i18n="kpi.k2Sub">Bakrie Pipe, GoTo, DSV, HokBen</p>
+          </div>
+
+          <!-- KPI 3: 2+ Tahun Organisasi -->
+          <div class="bento-card bento-hover p-6 sm:p-7 flex flex-col justify-between gap-2 reveal" style="transition-delay: 140ms;">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-muted" data-i18n="kpi.k3Label">Organisasi Kampus</span>
+            <div class="flex items-baseline gap-1">
+              <span class="kpi-counter font-display font-extrabold text-3xl sm:text-4xl text-sage" data-target="2" data-decimals="0">0</span>
+              <span class="font-display font-bold text-2xl text-sage">+</span>
+              <span class="font-mono text-xs text-muted ml-1" data-i18n="kpi.k3Unit">Tahun</span>
+            </div>
+            <p class="text-xs text-muted" data-i18n="kpi.k3Sub">BEM Fakultas Teknik &amp; HMTI</p>
+          </div>
+
+          <!-- KPI 4: 23 Keterampilan -->
+          <div class="bento-card bento-hover p-6 sm:p-7 flex flex-col justify-between gap-2 reveal" style="transition-delay: 210ms;">
+            <span class="font-mono text-[11px] uppercase tracking-wider text-muted" data-i18n="kpi.k4Label">Keterampilan Terukur</span>
+            <div class="flex items-baseline gap-1.5">
+              <span class="kpi-counter font-display font-extrabold text-3xl sm:text-4xl text-sand" data-target="23" data-decimals="0">0</span>
+              <span class="font-mono text-xs text-muted" data-i18n="kpi.k4Unit">Skills</span>
+            </div>
+            <p class="text-xs text-muted" data-i18n="kpi.k4Sub">12 Hard Skills + 11 Soft Skills</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: INTERACTIVE JOURNEY / EXPERIENCE BENTO SECTION
+         ==================================================================== -->
+    <section id="pengalaman" class="scroll-mt-24 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 reveal">
+        <div class="space-y-2 max-w-xl">
+          <span class="font-mono text-xs uppercase tracking-[0.16em] text-sage" data-i18n="journey.eyebrow">REKAM JEJAK &amp; PENGALAMAN</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-main tracking-tight" data-i18n="journey.title">Pengalaman, Pendidikan &amp; Organisasi</h2>
+          <p class="text-sm sm:text-base text-muted leading-relaxed" data-i18n="journey.subtitle">Perjalanan praktis di gudang teknik manufaktur pipa baja, logistik outbound, pendidikan Teknik Industri, hingga kepemimpinan organisasi mahasiswa.</p>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="inline-flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl border border-soft self-start md:self-auto" style="background: var(--bg-card);" role="tablist" aria-label="Filter perjalanan">
+          <button type="button" data-journey-filter="all" class="journey-filter-btn px-3.5 py-2 rounded-xl text-xs font-medium transition-all" data-i18n="journey.filterAll">Semua</button>
+          <button type="button" data-journey-filter="work" class="journey-filter-btn px-3.5 py-2 rounded-xl text-xs font-medium transition-all" data-i18n="journey.filterWork">Pengalaman Kerja</button>
+          <button type="button" data-journey-filter="education" class="journey-filter-btn px-3.5 py-2 rounded-xl text-xs font-medium transition-all" data-i18n="journey.filterEdu">Pendidikan</button>
+          <button type="button" data-journey-filter="organization" class="journey-filter-btn px-3.5 py-2 rounded-xl text-xs font-medium transition-all" data-i18n="journey.filterOrg">Organisasi</button>
+        </div>
+      </div>
+
+      <!-- Dynamic Bento Grid -->
+      <div id="journey-bento-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6"></div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: INTERACTIVE PROCESS LAB BENTO CARD (DUAL-MODE IE SIMULATOR)
+         ==================================================================== -->
+    <section id="process-lab" class="scroll-mt-24 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 reveal">
+        <div class="space-y-2 max-w-2xl">
+          <span class="font-mono text-xs uppercase tracking-[0.16em] text-sage" data-i18n="sim.eyebrow">INDUSTRIAL PROCESS LAB</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-main tracking-tight" data-i18n="sim.title">Simulasi Gudang Teknik &amp; Lean Process</h2>
+          <p class="text-sm sm:text-base text-muted leading-relaxed" data-i18n="sim.subtitle">Ubah mode operasional antara Gudang Teknik (PT Bakrie Pipe Industries) dan Logistik Outbound, lalu aktifkan prinsip Teknik Industri untuk melihat dampak langsung pada efisiensi dan mutu.</p>
+        </div>
+
+        <!-- Mode Switcher -->
+        <div class="inline-flex items-center p-1.5 rounded-full border border-soft self-start md:self-auto" style="background: var(--bg-card);" role="group" aria-label="Mode Process Lab">
+          <button id="sim-mode-bpi" type="button" class="px-4 py-2 rounded-full text-xs font-semibold transition-all" data-i18n="sim.modeBpi">Gudang Teknik (BPI)</button>
+          <button id="sim-mode-outbound" type="button" class="px-4 py-2 rounded-full text-xs font-semibold transition-all" data-i18n="sim.modeOutbound">Logistik Outbound</button>
+        </div>
+      </div>
+
+      <div class="bento-elevated p-6 sm:p-9 space-y-7 reveal">
+        <!-- Animated 5-Stage SVG Workflow -->
+        <div class="rounded-[20px] border border-soft p-4 sm:p-6 overflow-x-auto" style="background: var(--bg-page);">
+          <div class="min-w-[680px]">
+            <svg id="process-svg" viewBox="0 0 920 212" class="w-full h-auto" role="img" aria-label="Diagram Alur 5 Tahap Gudang Teknik dan Outbound">
+              <path d="M 92 96 L 828 96" stroke="var(--svg-track)" stroke-width="6" stroke-linecap="round" fill="none" />
+              <path id="svg-flow-dash" d="M 92 96 L 828 96" stroke="var(--sage)" stroke-width="2.4" stroke-dasharray="10 12" class="animate-dash-glide" fill="none" />
+
+              <!-- Subtle Rework Arc -->
+              <path id="svg-rework-arc" d="M 276 130 C 276 174, 178 174, 178 134 C 178 110, 212 110, 232 110" stroke="var(--sand)" stroke-width="1.8" stroke-dasharray="5 5" fill="none" opacity="0.24" />
+              <text id="svg-rework-label" x="226" y="180" text-anchor="middle" fill="var(--sand)" class="font-mono text-[9.5px]" opacity="0.45">RE-CHECK / REWORK</text>
+
+              <!-- Moving Spare-Part / Cargo Nodes -->
+              <g id="svg-cargo-layer"></g>
+
+              <!-- 5 Interactive Stage Nodes -->
+              <g class="sim-node cursor-pointer" data-stage="0" transform="translate(92, 96)">
+                <rect x="-58" y="-42" width="116" height="84" rx="18" class="node-rect transition-all" fill="var(--bg-card-elevated)" stroke="var(--sage-border)" stroke-width="1.6" />
+                <circle cx="0" cy="-14" r="13" fill="var(--sage-wash)" />
+                <path d="M-6 -11 h9 v-6 h-9 z M3 -15 h3.5 l2 2.8 v1.2 h-5.5 z" stroke="var(--sage)" stroke-width="1.5" fill="none" stroke-linejoin="round" />
+                <text id="node-title-0" y="13" text-anchor="middle" fill="var(--text-primary)" class="font-display font-semibold text-[11px]">01. Intake</text>
+                <text id="node-sub-0" y="27" text-anchor="middle" fill="var(--text-secondary)" class="font-mono text-[8.5px]">SPARE PARTS</text>
+              </g>
+
+              <g class="sim-node cursor-pointer" data-stage="1" transform="translate(276, 96)">
+                <rect x="-58" y="-42" width="116" height="84" rx="18" class="node-rect transition-all" fill="var(--bg-card-elevated)" stroke="var(--sage-border)" stroke-width="1.6" />
+                <circle cx="0" cy="-14" r="13" fill="var(--sage-wash)" />
+                <path d="M-5 -14 l3.2 3.2 l6.3 -6.5" stroke="var(--sage)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <text id="node-title-1" y="13" text-anchor="middle" fill="var(--text-primary)" class="font-display font-semibold text-[11px]">02. Verifikasi</text>
+                <text id="node-sub-1" y="27" text-anchor="middle" fill="var(--text-secondary)" class="font-mono text-[8.5px]">OPNAME &amp; QC</text>
+              </g>
+
+              <g class="sim-node cursor-pointer" data-stage="2" transform="translate(460, 96)">
+                <rect x="-58" y="-42" width="116" height="84" rx="18" class="node-rect transition-all" fill="var(--bg-card-elevated)" stroke="var(--sage-border)" stroke-width="1.6" />
+                <circle cx="0" cy="-14" r="13" fill="var(--sand-wash)" />
+                <path d="M-6 -18 h12 M-6 -14 h8 M-6 -10 h10" stroke="var(--sand)" stroke-width="1.7" stroke-linecap="round" />
+                <text id="node-title-2" y="13" text-anchor="middle" fill="var(--text-primary)" class="font-display font-semibold text-[11px]">03. Tata 5R</text>
+                <text id="node-sub-2" y="27" text-anchor="middle" fill="var(--text-secondary)" class="font-mono text-[8.5px]">RACK &amp; BIN</text>
+              </g>
+
+              <g class="sim-node cursor-pointer" data-stage="3" transform="translate(644, 96)">
+                <rect x="-58" y="-42" width="116" height="84" rx="18" class="node-rect transition-all" fill="var(--bg-card-elevated)" stroke="var(--sage-border)" stroke-width="1.6" />
+                <circle cx="0" cy="-14" r="13" fill="var(--sage-wash)" />
+                <path d="M0 -21 l5.5 2.8 v4.5 c0 3.8 -2.3 6.2 -5.5 7.7 c-3.2 -1.5 -5.5 -3.9 -5.5 -7.7 v-4.5 z" stroke="var(--sage)" stroke-width="1.5" fill="none" />
+                <text id="node-title-3" y="13" text-anchor="middle" fill="var(--text-primary)" class="font-display font-semibold text-[11px]">04. Cek K3</text>
+                <text id="node-sub-3" y="27" text-anchor="middle" fill="var(--text-secondary)" class="font-mono text-[8.5px]">SAFETY PREP</text>
+              </g>
+
+              <g class="sim-node cursor-pointer" data-stage="4" transform="translate(828, 96)">
+                <rect x="-58" y="-42" width="116" height="84" rx="18" class="node-rect transition-all" fill="var(--bg-card-elevated)" stroke="var(--sage-border)" stroke-width="1.6" />
+                <circle cx="0" cy="-14" r="13" fill="var(--sage-wash)" />
+                <path d="M-5 -14 h9.5 m-3 -3.5 l3.8 3.5 l-3.8 3.5" stroke="var(--sage)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <text id="node-title-4" y="13" text-anchor="middle" fill="var(--text-primary)" class="font-display font-semibold text-[11px]">05. Suplai</text>
+                <text id="node-sub-4" y="27" text-anchor="middle" fill="var(--text-secondary)" class="font-mono text-[8.5px]">TO PRODUCTION</text>
+              </g>
+
+              <text x="460" y="202" text-anchor="middle" fill="var(--text-secondary)" class="font-mono text-[10px]" id="svg-caption">KLIK STASIUN UNTUK MELIHAT DETAIL PROSES</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Station Explanation Bar -->
+        <div class="rounded-[18px] px-5 py-4 bg-sage-wash border border-sage-soft flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <div id="stage-info-title" class="font-mono text-xs font-semibold text-sage">STASIUN 03 // PENATAAN 5R / 5S</div>
+            <p id="stage-info-desc" class="text-xs sm:text-sm text-main leading-relaxed"></p>
+          </div>
+          <span id="stage-info-badge" class="self-start sm:self-center shrink-0 px-3 py-1 rounded-full font-mono text-[11px] bg-sand-wash text-sand border border-sand-soft">PT Bakrie Pipe Industries</span>
+        </div>
+
+        <!-- 4 IE Toggle Switches + 4 Live KPI Gauges -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Left: 4 Industrial Engineering Switches -->
+          <div class="lg:col-span-6 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs uppercase tracking-wider text-muted" data-i18n="sim.controlsLabel">Saklar Prinsip Teknik Industri</span>
+              <div class="flex items-center gap-2">
+                <button id="sim-reset-base" type="button" class="text-[11px] font-mono text-muted hover:text-main underline underline-offset-4 transition-colors" data-i18n="sim.btnBase">Manual</button>
+                <span class="text-muted opacity-40">•</span>
+                <button id="sim-set-optimal" type="button" class="text-[11px] font-mono text-sage font-semibold hover:opacity-80 underline underline-offset-4 transition-opacity" data-i18n="sim.btnOpt">Optimal</button>
+              </div>
+            </div>
+
+            <!-- Toggle 1: Lean Manufacturing -->
+            <button type="button" data-sim-toggle="lean" aria-pressed="true" class="sim-switch-btn w-full text-left p-4 rounded-[18px] border transition-all flex items-center justify-between gap-4">
+              <div>
+                <div class="font-display font-semibold text-sm text-main">Lean Manufacturing</div>
+                <p class="text-xs text-muted mt-0.5" data-i18n="sim.leanDesc">Eliminasi pemborosan gerak &amp; antrean agar suplai spare parts dan outbound mengalir lancar.</p>
+              </div>
+              <div class="sage-switch-track w-11 h-6 rounded-full p-0.5 shrink-0 flex items-center">
+                <div class="sage-switch-thumb w-5 h-5 rounded-full bg-[#FCFBF9] shadow-sm"></div>
+              </div>
+            </button>
+
+            <!-- Toggle 2: Six Sigma QC -->
+            <button type="button" data-sim-toggle="sixSigma" aria-pressed="true" class="sim-switch-btn w-full text-left p-4 rounded-[18px] border transition-all flex items-center justify-between gap-4">
+              <div>
+                <div class="font-display font-semibold text-sm text-main">Six Sigma QC</div>
+                <p class="text-xs text-muted mt-0.5" data-i18n="sim.sixSigmaDesc">Verifikasi data stok dan inspeksi mutu presisi untuk menekan tingkat kesalahan (PPM).</p>
+              </div>
+              <div class="sage-switch-track w-11 h-6 rounded-full p-0.5 shrink-0 flex items-center">
+                <div class="sage-switch-thumb w-5 h-5 rounded-full bg-[#FCFBF9] shadow-sm"></div>
+              </div>
+            </button>
+
+            <!-- Toggle 3: Work Measurement -->
+            <button type="button" data-sim-toggle="workMeas" aria-pressed="true" class="sim-switch-btn w-full text-left p-4 rounded-[18px] border transition-all flex items-center justify-between gap-4">
+              <div>
+                <div class="font-display font-semibold text-sm text-main">Work Measurement</div>
+                <p class="text-xs text-muted mt-0.5" data-i18n="sim.workMeasDesc">Standardisasi waktu siklus tiap stasiun kerja untuk menyeimbangkan kapasitas tim.</p>
+              </div>
+              <div class="sage-switch-track w-11 h-6 rounded-full p-0.5 shrink-0 flex items-center">
+                <div class="sage-switch-thumb w-5 h-5 rounded-full bg-[#FCFBF9] shadow-sm"></div>
+              </div>
+            </button>
+
+            <!-- Toggle 4: Standar K3 & 5R -->
+            <button type="button" data-sim-toggle="k3" aria-pressed="true" class="sim-switch-btn w-full text-left p-4 rounded-[18px] border transition-all flex items-center justify-between gap-4">
+              <div>
+                <div class="font-display font-semibold text-sm text-main" data-i18n="sim.k3Title">Standar K3 &amp; 5R</div>
+                <p class="text-xs text-muted mt-0.5" data-i18n="sim.k3Desc">Penataan rak 5R/5S serta kepatuhan APD dan keselamatan kerja di area pabrik &amp; gudang.</p>
+              </div>
+              <div class="sage-switch-track w-11 h-6 rounded-full p-0.5 shrink-0 flex items-center">
+                <div class="sage-switch-thumb w-5 h-5 rounded-full bg-[#FCFBF9] shadow-sm"></div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Right: 4 Live KPI Gauges + Insight Note -->
+          <div class="lg:col-span-6 space-y-4">
+            <span class="block font-mono text-xs uppercase tracking-wider text-muted" data-i18n="sim.metricsLabel">Indikator Performa Langsung</span>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-[20px] p-4 sm:p-5 border border-soft" style="background: var(--bg-card);">
+                <div class="text-xs text-muted" data-i18n="sim.mAcc">Akurasi Stok/Data</div>
+                <div id="metric-acc-val" class="mt-1.5 font-display font-extrabold text-2xl sm:text-3xl text-sage">99.6%</div>
+                <div class="mt-3 h-2 w-full rounded-full overflow-hidden" style="background: var(--svg-track);">
+                  <div id="metric-acc-bar" class="h-full rounded-full transition-all duration-500" style="width: 99.6%; background: var(--sage);"></div>
+                </div>
+              </div>
+
+              <div class="rounded-[20px] p-4 sm:p-5 border border-soft" style="background: var(--bg-card);">
+                <div class="text-xs text-muted" data-i18n="sim.mCycle">Waktu Siklus</div>
+                <div id="metric-cycle-val" class="mt-1.5 font-display font-extrabold text-2xl sm:text-3xl text-sand">24s</div>
+                <div class="mt-3 h-2 w-full rounded-full overflow-hidden" style="background: var(--svg-track);">
+                  <div id="metric-cycle-bar" class="h-full rounded-full transition-all duration-500" style="width: 40%; background: var(--sand);"></div>
+                </div>
+              </div>
+
+              <div class="rounded-[20px] p-4 sm:p-5 border border-soft" style="background: var(--bg-card);">
+                <div class="text-xs text-muted" data-i18n="sim.mPpm">Tingkat Defect (PPM)</div>
+                <div id="metric-ppm-val" class="mt-1.5 font-display font-extrabold text-2xl sm:text-3xl text-main">180 PPM</div>
+                <div class="mt-3 h-2 w-full rounded-full overflow-hidden" style="background: var(--svg-track);">
+                  <div id="metric-ppm-bar" class="h-full rounded-full transition-all duration-500" style="width: 8%; background: var(--sand);"></div>
+                </div>
+              </div>
+
+              <div class="rounded-[20px] p-4 sm:p-5 border border-soft" style="background: var(--bg-card);">
+                <div class="text-xs text-muted" data-i18n="sim.mK3">Kepatuhan K3</div>
+                <div id="metric-k3-val" class="mt-1.5 font-display font-extrabold text-2xl sm:text-3xl text-sage">100%</div>
+                <div class="mt-3 h-2 w-full rounded-full overflow-hidden" style="background: var(--svg-track);">
+                  <div id="metric-k3-bar" class="h-full rounded-full transition-all duration-500" style="width: 100%; background: var(--sage);"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-[20px] p-5 border border-sand-soft bg-sand-wash">
+              <div class="font-mono text-[11px] uppercase tracking-wider text-sand font-semibold mb-1.5" data-i18n="sim.noteTitle">CATATAN ANALISIS PROSES</div>
+              <p id="sim-insight-text" class="text-xs sm:text-sm text-main leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: COMPETENCY RADAR & 23 INTERACTIVE SKILL CHIPS BENTO
+         ==================================================================== -->
+    <section id="kompetensi" class="scroll-mt-24 space-y-8">
+      <div class="space-y-2 max-w-2xl reveal">
+        <span class="font-mono text-xs uppercase tracking-[0.16em] text-sage" data-i18n="skills.eyebrow">PETA KOMPETENSI</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-main tracking-tight" data-i18n="skills.title">Radar Kompetensi &amp; 23 Keterampilan</h2>
+        <p class="text-sm sm:text-base text-muted leading-relaxed" data-i18n="skills.subtitle">Arahkan kursor pada grafik Radar 5 sumbu atau klik setiap chip keahlian untuk melihat konteks penerapannya di PT Bakrie Pipe Industries, GoTo Logistik, DSV, dan Universitas Darma Persada.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+        <!-- Left Bento (5 cols): 5-Axis SVG Radar Chart -->
+        <div class="lg:col-span-5 bento-card bento-hover p-6 sm:p-8 flex flex-col justify-between gap-5 reveal">
+          <div class="flex items-center justify-between">
+            <span class="font-display font-bold text-lg text-main" data-i18n="skills.radarHeading">Radar Kompetensi</span>
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded-full bg-sage-wash text-sage border border-sage-soft">5 SUMBU</span>
+          </div>
+
+          <div id="radar-container" class="relative flex items-center justify-center my-1">
+            <svg id="radar-svg" viewBox="0 0 380 338" class="w-full max-w-[360px] h-auto" role="img" aria-label="Grafik Radar 5 Sumbu Kompetensi Ahmad Suheil Isaguzi">
+              <g id="radar-grid-layer"></g>
+              <polygon id="radar-area" fill="var(--sage)" fill-opacity="0.22" stroke="var(--sage)" stroke-width="2.2" stroke-linejoin="round" style="transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);" />
+              <g id="radar-points-layer"></g>
+            </svg>
+
+            <!-- Hover Tooltip -->
+            <div id="radar-tooltip" class="hidden pointer-events-none absolute z-20 px-3.5 py-2.5 rounded-2xl border border-sage-soft shadow-lg text-xs max-w-[210px]" style="background: var(--bg-card-elevated);">
+              <div id="radar-tt-name" class="font-display font-semibold text-main"></div>
+              <div id="radar-tt-val" class="font-mono text-sage font-semibold mt-0.5"></div>
+              <div id="radar-tt-ctx" class="text-[11px] text-muted mt-1 leading-snug"></div>
+            </div>
+          </div>
+
+          <!-- Selected Axis Detail -->
+          <div class="rounded-[18px] p-4 border border-soft" style="background: var(--bg-card-elevated);">
+            <div class="flex items-center justify-between gap-2">
+              <span id="radar-active-title" class="font-display font-semibold text-sm text-main">Manajemen Gudang &amp; Rantai Pasok</span>
+              <span id="radar-active-score" class="font-mono text-xs font-semibold text-sage">94 / 100</span>
+            </div>
+            <p id="radar-active-desc" class="mt-1.5 text-xs text-muted leading-relaxed"></p>
+          </div>
+        </div>
+
+        <!-- Right Bento (7 cols): 12 Hard + 11 Soft Skill Interactive Chips -->
+        <div class="lg:col-span-7 bento-elevated p-6 sm:p-8 flex flex-col justify-between gap-6 reveal" style="transition-delay: 90ms;">
+          <div class="space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="inline-flex items-center p-1 rounded-full border border-soft" style="background: var(--bg-card);" role="tablist">
+                <button type="button" data-skill-tab="hard" class="skill-tab-btn px-4 py-2 rounded-full text-xs font-semibold transition-all" data-i18n="skills.tabHard">Hard Skills (12)</button>
+                <button type="button" data-skill-tab="soft" class="skill-tab-btn px-4 py-2 rounded-full text-xs font-semibold transition-all" data-i18n="skills.tabSoft">Soft Skills (11)</button>
+              </div>
+              <span class="font-mono text-[11px] text-muted" data-i18n="skills.tapHint">Klik chip untuk konteks penerapan</span>
+            </div>
+
+            <div id="skills-pill-list" class="flex flex-wrap gap-2.5"></div>
+          </div>
+
+          <!-- Contextual Application Mini-Card -->
+          <div class="rounded-[20px] p-5 sm:p-6 border border-sage-soft bg-sage-wash space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="font-mono text-[11px] uppercase tracking-wider text-sage font-semibold" data-i18n="skills.ctxEyebrow">KONTEKS PENERAPAN NYATA</span>
+              <span id="skill-ctx-cluster" class="px-2.5 py-0.5 rounded-full font-mono text-[11px] bg-sand-wash text-sand border border-sand-soft">Manajemen Gudang &amp; Rantai Pasok</span>
+            </div>
+            <h3 id="skill-ctx-name" class="font-display font-bold text-xl sm:text-2xl text-main">Manajemen Rantai Pasok</h3>
+            <p id="skill-ctx-desc" class="text-sm text-muted leading-relaxed"></p>
+            <div class="pt-3 border-t border-sage-soft flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+              <span class="text-muted" data-i18n="skills.appliedLabel">Diterapkan pada:</span>
+              <span id="skill-ctx-where" class="text-sage font-medium">PT Bakrie Pipe Industries • PT GoTo Logistik • PT DSV Solution</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: PERSONAL PROFILE, HOBBIES & CONTACT BENTO SECTION
+         ==================================================================== -->
+    <section id="kontak" class="scroll-mt-24 space-y-8">
+      <div class="space-y-2 max-w-2xl reveal">
+        <span class="font-mono text-xs uppercase tracking-[0.16em] text-sage" data-i18n="contact.eyebrow">MARI TERHUBUNG</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-main tracking-tight" data-i18n="contact.title">Kontak, Profil Personal &amp; Hobi</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+        <!-- Contact Bento Tile (7 cols) -->
+        <div class="lg:col-span-7 bento-elevated bento-hover p-7 sm:p-9 flex flex-col justify-between gap-7 reveal">
+          <div class="space-y-3">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-wash text-sage font-mono text-xs">
+              <span class="w-2 h-2 rounded-full" style="background: var(--sage);"></span>
+              <span data-i18n="contact.openTag">Terbuka untuk Diskusi &amp; Peluang Karir</span>
+            </span>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-main leading-snug" data-i18n="contact.inviteTitle">
+              Siap berkontribusi meningkatkan efisiensi, kualitas, dan produktivitas perusahaan Anda.
+            </h3>
+            <p class="text-sm sm:text-base text-muted leading-relaxed" data-i18n="contact.inviteDesc">
+              Hubungi saya melalui WhatsApp, Email, atau LinkedIn untuk peluang di bidang Teknik Industri, Warehouse &amp; Gudang Teknik, PPIC, Quality Control, maupun Supply Chain.
+            </p>
+          </div>
+
+          <div class="space-y-3.5">
+            <!-- Phone / WhatsApp -->
+            <div class="rounded-[18px] p-4 border border-soft flex flex-wrap items-center justify-between gap-3" style="background: var(--bg-card);">
+              <div class="flex items-center gap-3.5 min-w-0">
+                <span class="w-10 h-10 rounded-2xl bg-sand-wash text-sand flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="font-mono text-[11px] text-muted" data-i18n="contact.phoneLabel">Telepon / WhatsApp</div>
+                  <a href="https://wa.me/62895364660061" target="_blank" rel="noopener noreferrer" class="font-mono font-medium text-sm text-main hover:text-sage transition-colors">0895364660061</a>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" data-copy-text="0895364660061" class="copy-trigger px-3.5 py-2 rounded-full text-xs font-mono font-medium bg-sage-wash text-sage border border-sage-soft hover:opacity-85 transition-opacity" data-i18n="contact.copy">Salin</button>
+                <a href="https://wa.me/62895364660061" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-full text-xs font-semibold text-[#FCFBF9] dark:text-[#161B18] bg-sage transition-colors">WhatsApp</a>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="rounded-[18px] p-4 border border-soft flex flex-wrap items-center justify-between gap-3" style="background: var(--bg-card);">
+              <div class="flex items-center gap-3.5 min-w-0">
+                <span class="w-10 h-10 rounded-2xl bg-sage-wash text-sage flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                <div class="min-w-0">
+                  <div class="font-mono text-[11px] text-muted">Email</div>
+                  <a href="mailto:ahmadsuheilisa@gmail.com" class="block font-medium text-sm text-main hover:text-sage transition-colors truncate">ahmadsuheilisa@gmail.com</a>
+                </div>
+              </div>
+              <button type="button" data-copy-text="ahmadsuheilisa@gmail.com" class="copy-trigger px-3.5 py-2 rounded-full text-xs font-mono font-medium bg-sage-wash text-sage border border-sage-soft hover:opacity-85 transition-opacity" data-i18n="contact.copy">Salin</button>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="rounded-[18px] p-4 border border-sage-soft bg-sage-wash flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-3.5 min-w-0">
+                <span class="w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 text-[#FCFBF9] dark:text-[#161B18] bg-sage">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" /></svg>
+                </span>
+                <div class="min-w-0">
+                  <div class="font-display font-semibold text-sm text-main">LinkedIn</div>
+                  <a href="https://www.linkedin.com/in/ahmad-suheil-728720411" target="_blank" rel="noopener noreferrer" class="block font-mono text-xs text-sage hover:underline truncate">www.linkedin.com/in/ahmad-suheil-728720411</a>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" data-copy-text="https://www.linkedin.com/in/ahmad-suheil-728720411" class="copy-trigger px-3 py-1.5 rounded-full text-xs font-mono font-medium border border-sage-soft text-sage hover:opacity-85 transition-opacity" style="background: var(--bg-card-elevated);" data-i18n="contact.copy">Salin</button>
+                <a href="https://www.linkedin.com/in/ahmad-suheil-728720411" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full text-xs font-semibold text-[#FCFBF9] dark:text-[#161B18] bg-sage" data-i18n="contact.open">Buka</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Snapshot & Interactive Hobbies Tile (5 cols) -->
+        <div class="lg:col-span-5 bento-card bento-hover p-7 sm:p-8 flex flex-col justify-between gap-6 reveal" style="transition-delay: 100ms;">
+          <div class="space-y-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-xl text-main" data-i18n="contact.snapshotTitle">Profil Personal</h3>
+              <span class="font-mono text-[11px] text-muted">CV DATA</span>
+            </div>
+
+            <div class="space-y-4 text-sm">
+              <div class="flex items-center justify-between gap-4 pb-3.5 border-b border-soft">
+                <span class="text-xs font-mono text-muted" data-i18n="contact.dobLabel">Tempat, Tgl Lahir</span>
+                <span class="font-medium text-main text-right" data-i18n="contact.dobVal">Bekasi, 13 Juli 2002</span>
+              </div>
+
+              <div class="flex items-center justify-between gap-4 pb-3.5 border-b border-soft">
+                <span class="text-xs font-mono text-muted" data-i18n="contact.statusLabel">Status</span>
+                <span class="font-medium text-sage text-right" data-i18n="contact.statusVal">Belum Menikah</span>
+              </div>
+
+              <div class="space-y-2 pb-1">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-xs font-mono text-muted" data-i18n="contact.addressLabel">Alamat</span>
+                  <button type="button" data-copy-text="Jln Lapangan Bola RT001/RW015 No 36 Kranji, Bekasi Barat, Kota Bekasi" class="copy-trigger px-2.5 py-1 rounded-full font-mono text-[11px] bg-sand-wash text-sand border border-sand-soft hover:opacity-85 transition-opacity" data-i18n="contact.copy">Salin</button>
+                </div>
+                <p class="text-xs sm:text-sm text-main leading-relaxed">
+                  Jln Lapangan Bola RT001/RW015 No 36 Kranji, Bekasi Barat, Kota Bekasi
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Micro-Animation Hobbies -->
+          <div class="pt-5 border-t border-soft space-y-3">
+            <div class="font-mono text-[11px] uppercase tracking-wider text-muted" data-i18n="contact.hobbiesLabel">Hobi &amp; Minat (Klik untuk Interaksi)</div>
+            <div class="grid grid-cols-2 gap-3">
+              <!-- Football Micro-Animation -->
+              <button id="hobby-football-btn" type="button" class="hobby-football-pill p-3.5 rounded-[18px] border border-sage-soft bg-sage-wash text-left flex items-center gap-3 transition-all active:scale-[0.98]">
+                <div id="football-icon-wrap" class="football-svg w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-sage" style="background: var(--bg-card-elevated);">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <circle cx="12" cy="12" r="9" />
+                    <polygon points="12,7.2 15.8,10 14.3,14.8 9.7,14.8 8.2,10" fill="currentColor" fill-opacity="0.2" />
+                  </svg>
+                </div>
+                <div class="min-w-0">
+                  <div class="font-display font-semibold text-xs sm:text-sm text-main truncate" data-i18n="contact.football">Sepak Bola</div>
+                  <div id="football-caption" class="font-mono text-[10px] text-sage truncate">Teamwork</div>
+                </div>
+              </button>
+
+              <!-- Music Calm Equalizer Micro-Animation -->
+              <button id="hobby-music-btn" type="button" class="hobby-music-pill p-3.5 rounded-[18px] border border-sand-soft bg-sand-wash text-left flex items-center gap-3 transition-all active:scale-[0.98]">
+                <div id="music-eq-wrap" class="w-9 h-9 rounded-xl flex items-end justify-center gap-[3px] p-2 shrink-0" style="background: var(--bg-card-elevated);">
+                  <span class="eq-bar w-[3px] h-3.5 rounded-full" style="background: var(--sage); animation-delay: 0s;"></span>
+                  <span class="eq-bar w-[3px] h-4 rounded-full" style="background: var(--sand); animation-delay: 0.22s;"></span>
+                  <span class="eq-bar w-[3px] h-2.5 rounded-full" style="background: var(--sage); animation-delay: 0.44s;"></span>
+                  <span class="eq-bar w-[3px] h-3.5 rounded-full" style="background: var(--sand); animation-delay: 0.14s;"></span>
+                </div>
+                <div class="min-w-0">
+                  <div class="font-display font-semibold text-xs sm:text-sm text-main truncate" data-i18n="contact.music">Musik</div>
+                  <div id="music-caption" class="font-mono text-[10px] text-sand truncate">Playing</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       CALM MINIMAL FOOTER
+       ====================================================================== -->
+  <footer class="border-t border-soft">
+    <div class="max-w-bento mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-center sm:text-left">
+        <div class="font-display font-bold text-base text-main">Ahmad Suheil Isaguzi</div>
+        <p class="font-mono text-xs text-muted mt-0.5" data-i18n="footer.note">Misty Sage &amp; Warm Cream • Industrial Engineering Portfolio</p>
+      </div>
+      <a href="#profil" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono text-sage bg-sage-wash border border-sage-soft hover:opacity-85 transition-opacity">
+        <span data-i18n="footer.backTop">Kembali ke Atas</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       SERENE LIGHTBOX MODAL FOR 4-PHOTO ORBITING SHOWCASE
+       ====================================================================== -->
+  <div id="photo-lightbox" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-md" style="background: rgba(26, 30, 28, 0.72);" role="dialog" aria-modal="true" aria-labelledby="lb-title">
+    <div class="w-full max-w-2xl bento-elevated p-5 sm:p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="lb-badge" class="px-2.5 py-1 rounded-full font-mono text-[11px] font-semibold text-[#FCFBF9] dark:text-[#161B18] bg-sage">01 / 04</span>
+          <h3 id="lb-title" class="font-display font-bold text-base sm:text-lg text-main truncate">Profil Profesional</h3>
+        </div>
+        <button id="lb-close-btn" type="button" aria-label="Tutup Pratinjau" class="w-9 h-9 rounded-full border border-soft flex items-center justify-center text-muted hover:text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card);">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Lightbox Visual Container -->
+      <div id="lb-visual-frame" class="relative w-full h-[290px] sm:h-[380px] rounded-[20px] overflow-hidden border border-soft bg-sage-wash flex items-center justify-center">
+        <img id="lb-img" src="" alt="" class="w-full h-full object-cover" />
+        <div id="lb-svg-fallback" class="hidden w-full h-full"></div>
+      </div>
+
+      <!-- Caption & Lightbox Navigation -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+        <p id="lb-desc" class="text-xs sm:text-sm text-muted leading-relaxed"></p>
+        <div class="flex items-center gap-2 shrink-0">
+          <button id="lb-prev-btn" type="button" class="px-3.5 py-2 rounded-full text-xs font-mono border border-soft text-main hover:border-sage-soft transition-colors" style="background: var(--bg-card);">‹ Prev</button>
+          <button id="lb-next-btn" type="button" class="px-3.5 py-2 rounded-full text-xs font-mono text-[#FCFBF9] dark:text-[#161B18] bg-sage transition-colors">Next ›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Sage Toast Notification Container (No alert() ever used) -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-xs sm:max-w-sm pointer-events-none"></div>
+
+  <!-- ======================================================================
+       COMPLETE INTERACTIVE PORTFOLIO ENGINE
+       ====================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* --------------------------------------------------------------------
+         1. GLOBAL STATE & BILINGUAL DICTIONARY (ID / EN)
+         -------------------------------------------------------------------- */
+      let currentLang = 'id';
+      let currentJourneyFilter = 'all';
+      let currentSkillTab = 'hard';
+      let selectedSkillId = 'scm';
+      let selectedStageIdx = 2;
+      let currentSimMode = 'bpi';
+      let activeRadarId = 'warehouse';
+      let schoolDrawerOpen = false;
+
+      const I18N = {
+        id: {
+          'nav.profil': 'Profil',
+          'nav.pengalaman': 'Pengalaman',
+          'nav.processLab': 'Process Lab',
+          'nav.kompetensi': 'Kompetensi',
+          'nav.kontak': 'Kontak',
+          'hero.status': 'Magang Aktif • PT Bakrie Pipe Industries — Warehouse Gudang Teknik',
+          'hero.bio': 'Lulusan S1 Teknik Industri Universitas Darma Persada yang memiliki kemampuan berpikir analitis, pemecahan masalah, dan pendekatan kerja yang sistematis. Disiplin, mudah beradaptasi, serta siap memberikan kontribusi nyata dalam meningkatkan efisiensi, kualitas, dan produktivitas perusahaan — baik dalam tim maupun secara mandiri.',
+          'hero.ctaExp': 'Jelajahi Pengalaman',
+          'hero.ctaContact': 'Hubungi Saya',
+          'hero.ctaCopyEmail': 'Salin Email',
+          'orbit.modeOrbit': 'Orbit Keliling',
+          'orbit.modeCarousel': '3D Carousel 360°',
+          'orbit.uploadBtn': 'Ganti 4 Foto',
+          'orbit.uploadTitle': 'Unggah Foto Sendiri (Pratinjau Langsung)',
+          'orbit.uploadAll': 'Pilih 1–4 Foto Sekaligus',
+          'orbit.reset': 'Reset',
+          'orbit.slot1': 'Slot 1 • Profil',
+          'orbit.slot2': 'Slot 2 • BPI',
+          'orbit.slot3': 'Slot 3 • Logistik',
+          'orbit.slot4': 'Slot 4 • Kampus',
+          'orbit.dragHint': 'Geser atau klik foto • 2x klik untuk perbesar',
+          'orbit.reverse': 'Balik Arah',
+          'orbit.play': 'Putar',
+          'orbit.pause': 'Jeda',
+          'orbit.slow': 'Pelan',
+          'orbit.normal': 'Normal',
+          'kpi.k1Label': 'IPK S1 Teknik Industri',
+          'kpi.k1Sub': 'Universitas Darma Persada',
+          'kpi.k2Label': 'Pengalaman Kerja & Magang',
+          'kpi.k2Unit': 'Peran',
+          'kpi.k2Sub': 'Bakrie Pipe, GoTo, DSV, HokBen',
+          'kpi.k3Label': 'Organisasi Kampus',
+          'kpi.k3Unit': 'Tahun',
+          'kpi.k3Sub': 'BEM Fakultas Teknik & HMTI',
+          'kpi.k4Label': 'Keterampilan Terukur',
+          'kpi.k4Unit': 'Keahlian',
+          'kpi.k4Sub': '12 Hard Skills + 11 Soft Skills',
+          'journey.eyebrow': 'REKAM JEJAK & PENGALAMAN',
+          'journey.title': 'Pengalaman, Pendidikan & Organisasi',
+          'journey.subtitle': 'Perjalanan praktis di gudang teknik manufaktur pipa baja, logistik outbound, pendidikan Teknik Industri, hingga kepemimpinan organisasi mahasiswa.',
+          'journey.filterAll': 'Semua',
+          'journey.filterWork': 'Pengalaman Kerja',
+          'journey.filterEdu': 'Pendidikan',
+          'journey.filterOrg': 'Organisasi',
+          'sim.eyebrow': 'INDUSTRIAL PROCESS LAB',
+          'sim.title': 'Simulasi Gudang Teknik & Lean Process',
+          'sim.subtitle': 'Ubah mode operasional antara Gudang Teknik (PT Bakrie Pipe Industries) dan Logistik Outbound, lalu aktifkan prinsip Teknik Industri untuk melihat dampak langsung pada efisiensi dan mutu.',
+          'sim.modeBpi': 'Gudang Teknik (BPI)',
+          'sim.modeOutbound': 'Logistik Outbound',
+          'sim.controlsLabel': 'Saklar Prinsip Teknik Industri',
+          'sim.btnBase': 'Manual',
+          'sim.btnOpt': 'Optimal',
+          'sim.leanDesc': 'Eliminasi pemborosan gerak & antrean agar suplai spare parts dan outbound mengalir lancar.',
+          'sim.sixSigmaDesc': 'Verifikasi data stok dan inspeksi mutu presisi untuk menekan tingkat kesalahan (PPM).',
+          'sim.workMeasDesc': 'Standardisasi waktu siklus tiap stasiun kerja untuk menyeimbangkan kapasitas tim.',
+          'sim.k3Title': 'Standar K3 & 5R',
+          'sim.k3Desc': 'Penataan rak 5R/5S serta kepatuhan APD dan keselamatan kerja di area pabrik & gudang.',
+          'sim.metricsLabel': 'Indikator Performa Langsung',
+          'sim.mAcc': 'Akurasi Stok/Data',
+          'sim.mCycle': 'Waktu Siklus',
+          'sim.mPpm': 'Tingkat Defect (PPM)',
+          'sim.mK3': 'Kepatuhan K3',
+          'sim.noteTitle': 'CATATAN ANALISIS PROSES',
+          'skills.eyebrow': 'PETA KOMPETENSI',
+          'skills.title': 'Radar Kompetensi & 23 Keterampilan',
+          'skills.subtitle': 'Arahkan kursor pada grafik Radar 5 sumbu atau klik setiap chip keahlian untuk melihat konteks penerapannya di PT Bakrie Pipe Industries, GoTo Logistik, DSV, dan Universitas Darma Persada.',
+          'skills.radarHeading': 'Radar Kompetensi',
+          'skills.tabHard': 'Hard Skills (12)',
+          'skills.tabSoft': 'Soft Skills (11)',
+          'skills.tapHint': 'Klik chip untuk konteks penerapan',
+          'skills.ctxEyebrow': 'KONTEKS PENERAPAN NYATA',
+          'skills.appliedLabel': 'Diterapkan pada:',
+          'contact.eyebrow': 'MARI TERHUBUNG',
+          'contact.title': 'Kontak, Profil Personal & Hobi',
+          'contact.openTag': 'Terbuka untuk Diskusi & Peluang Karir',
+          'contact.inviteTitle': 'Siap berkontribusi meningkatkan efisiensi, kualitas, dan produktivitas perusahaan Anda.',
+          'contact.inviteDesc': 'Hubungi saya melalui WhatsApp, Email, atau LinkedIn untuk peluang di bidang Teknik Industri, Warehouse & Gudang Teknik, PPIC, Quality Control, maupun Supply Chain.',
+          'contact.phoneLabel': 'Telepon / WhatsApp',
+          'contact.copy': 'Salin',
+          'contact.open': 'Buka',
+          'contact.snapshotTitle': 'Profil Personal',
+          'contact.dobLabel': 'Tempat, Tgl Lahir',
+          'contact.dobVal': 'Bekasi, 13 Juli 2002',
+          'contact.statusLabel': 'Status',
+          'contact.statusVal': 'Belum Menikah',
+          'contact.addressLabel': 'Alamat',
+          'contact.hobbiesLabel': 'Hobi & Minat (Klik untuk Interaksi)',
+          'contact.football': 'Sepak Bola',
+          'contact.music': 'Musik',
+          'footer.note': 'Misty Sage & Warm Cream • Industrial Engineering Portfolio',
+          'footer.backTop': 'Kembali ke Atas',
+          typingRoles: [
+            'Industrial Engineer',
+            'Warehouse & Supply Chain',
+            'Process Improvement & Lean',
+            'Quality Control & 5R/K3'
+          ],
+          svgCaption: 'KLIK STASIUN UNTUK MELIHAT DETAIL PROSES',
+          toastCopied: 'Berhasil disalin ke clipboard.',
+          toastThemeDark: 'Soft Dark Mode (Deep Forest Slate) aktif.',
+          toastThemeLight: 'Misty Sage & Warm Cream aktif.',
+          toastPhotoUpdated: 'Foto berhasil diperbarui pada galeri putar!',
+          toastPhotosReset: '4 foto bawaan berhasil dipulihkan.',
+          drawerTitle: 'Riwayat Sekolah & Ekstrakurikuler',
+          drawerSub: 'SMK Bina Mandiri, SMP Bina Siswa Utama & SD MI Al Muhajirien'
+        },
+        en: {
+          'nav.profil': 'Profile',
+          'nav.pengalaman': 'Experience',
+          'nav.processLab': 'Process Lab',
+          'nav.kompetensi': 'Competency',
+          'nav.kontak': 'Contact',
+          'hero.status': 'Active Intern • PT Bakrie Pipe Industries — Technical Warehouse',
+          'hero.bio': 'Industrial Engineering graduate from Universitas Darma Persada possessing analytical thinking, problem-solving skills, and a systematic approach to work. Disciplined, adaptable, and ready to contribute toward enhancing efficiency, quality, and productivity—both independently and within a team.',
+          'hero.ctaExp': 'Explore Experience',
+          'hero.ctaContact': 'Contact Me',
+          'hero.ctaCopyEmail': 'Copy Email',
+          'orbit.modeOrbit': 'Circular Orbit',
+          'orbit.modeCarousel': '3D Carousel 360°',
+          'orbit.uploadBtn': 'Upload 4 Photos',
+          'orbit.uploadTitle': 'Replace Orbiting Photos (Instant Live Preview)',
+          'orbit.uploadAll': 'Select 1–4 Photos at Once',
+          'orbit.reset': 'Reset',
+          'orbit.slot1': 'Slot 1 • Profile',
+          'orbit.slot2': 'Slot 2 • BPI',
+          'orbit.slot3': 'Slot 3 • Logistics',
+          'orbit.slot4': 'Slot 4 • Campus',
+          'orbit.dragHint': 'Drag or click photo • Double-click to expand',
+          'orbit.reverse': 'Reverse',
+          'orbit.play': 'Play',
+          'orbit.pause': 'Pause',
+          'orbit.slow': 'Calm',
+          'orbit.normal': 'Normal',
+          'kpi.k1Label': 'Industrial Eng. GPA',
+          'kpi.k1Sub': 'Universitas Darma Persada',
+          'kpi.k2Label': 'Work & Internships',
+          'kpi.k2Unit': 'Roles',
+          'kpi.k2Sub': 'Bakrie Pipe, GoTo, DSV, HokBen',
+          'kpi.k3Label': 'Campus Leadership',
+          'kpi.k3Unit': 'Years',
+          'kpi.k3Sub': 'BEM Faculty of Eng. & HMTI',
+          'kpi.k4Label': 'Verified Skills',
+          'kpi.k4Unit': 'Skills',
+          'kpi.k4Sub': '12 Hard Skills + 11 Soft Skills',
+          'journey.eyebrow': 'STRUCTURED TRACK RECORD',
+          'journey.title': 'Experience, Education & Organizations',
+          'journey.subtitle': 'Hands-on experience in steel pipe manufacturing technical warehousing, outbound logistics, Industrial Engineering studies, and student leadership.',
+          'journey.filterAll': 'All',
+          'journey.filterWork': 'Work Experience',
+          'journey.filterEdu': 'Education',
+          'journey.filterOrg': 'Organizations',
+          'sim.eyebrow': 'INDUSTRIAL PROCESS LAB',
+          'sim.title': 'Technical Warehouse & Lean Process Lab',
+          'sim.subtitle': 'Switch operating modes between Technical Warehouse (PT Bakrie Pipe Industries) and Outbound Logistics, then toggle Industrial Engineering principles to observe live efficiency and quality gains.',
+          'sim.modeBpi': 'Technical Warehouse (BPI)',
+          'sim.modeOutbound': 'Outbound Logistics',
+          'sim.controlsLabel': 'Industrial Engineering Toggles',
+          'sim.btnBase': 'Manual',
+          'sim.btnOpt': 'Optimal',
+          'sim.leanDesc': 'Eliminate motion waste and queues so spare parts and outbound cargo flow smoothly.',
+          'sim.sixSigmaDesc': 'Stock data verification and precision QC inspection reducing defect PPM.',
+          'sim.workMeasDesc': 'Standardized cycle times across workstations to balance team workload.',
+          'sim.k3Title': 'K3 & 5S Standards',
+          'sim.k3Desc': '5S rack organization alongside strict PPE and manufacturing/warehouse safety.',
+          'sim.metricsLabel': 'Live KPI Gauges',
+          'sim.mAcc': 'Stock / Data Accuracy',
+          'sim.mCycle': 'Cycle Time',
+          'sim.mPpm': 'Defect Rate (PPM)',
+          'sim.mK3': 'K3 Compliance',
+          'sim.noteTitle': 'PROCESS ANALYSIS NOTE',
+          'skills.eyebrow': 'COMPETENCY MAP',
+          'skills.title': 'Competency Radar & 23 Skills',
+          'skills.subtitle': 'Hover over the 5-axis Radar chart or click any skill chip to inspect how Ahmad applies it across PT Bakrie Pipe Industries, GoTo Logistics, DSV, and Universitas Darma Persada.',
+          'skills.radarHeading': 'Competency Radar',
+          'skills.tabHard': 'Hard Skills (12)',
+          'skills.tabSoft': 'Soft Skills (11)',
+          'skills.tapHint': 'Click any chip for applied context',
+          'skills.ctxEyebrow': 'REAL-WORLD APPLICATION CONTEXT',
+          'skills.appliedLabel': 'Applied at:',
+          'contact.eyebrow': "LET'S CONNECT",
+          'contact.title': 'Contact, Personal Profile & Hobbies',
+          'contact.openTag': 'Open to Discussion & Career Opportunities',
+          'contact.inviteTitle': 'Ready to contribute toward enhancing your company’s efficiency, quality, and productivity.',
+          'contact.inviteDesc': 'Reach out via WhatsApp, Email, or LinkedIn for opportunities in Industrial Engineering, Technical Warehouse & Inventory Control, PPIC, Quality Control, or Supply Chain.',
+          'contact.phoneLabel': 'Phone / WhatsApp',
+          'contact.copy': 'Copy',
+          'contact.open': 'Open',
+          'contact.snapshotTitle': 'Personal Profile',
+          'contact.dobLabel': 'Place, Date of Birth',
+          'contact.dobVal': 'Bekasi, July 13, 2002',
+          'contact.statusLabel': 'Status',
+          'contact.statusVal': 'Single',
+          'contact.addressLabel': 'Address',
+          'contact.hobbiesLabel': 'Hobbies & Interests (Click to Interact)',
+          'contact.football': 'Football',
+          'contact.music': 'Music',
+          'footer.note': 'Misty Sage & Warm Cream • Industrial Engineering Portfolio',
+          'footer.backTop': 'Back to Top',
+          typingRoles: [
+            'Industrial Engineer',
+            'Warehouse & Supply Chain',
+            'Process Improvement & Lean',
+            'Quality Control & 5S/K3'
+          ],
+          svgCaption: 'CLICK ANY STATION TO INSPECT WORKFLOW DETAILS',
+          toastCopied: 'Copied to clipboard.',
+          toastThemeDark: 'Soft Dark Mode (Deep Forest Slate) enabled.',
+          toastThemeLight: 'Misty Sage & Warm Cream enabled.',
+          toastPhotoUpdated: 'Photo updated in the 3D rotating showcase!',
+          toastPhotosReset: 'Default 4 curated photos restored.',
+          drawerTitle: 'School History & Extracurriculars',
+          drawerSub: 'SMK Bina Mandiri, SMP Bina Siswa Utama & SD MI Al Muhajirien'
+        }
+      };
+
+      /* --------------------------------------------------------------------
+         2. 4-PHOTO 3D ORBITING SHOWCASE DATA (WITH GUARANTEED INLINE SVG FALLBACKS)
+         -------------------------------------------------------------------- */
+      const DEFAULT_PHOTOS = [
+        {
+          id: 'profil',
+          num: '01',
+          defaultUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=720&q=80',
+          customUrl: null,
+          title: { id: 'Profil Profesional', en: 'Professional Profile' },
+          sub: { id: 'Industrial Engineer — Ahmad Suheil Isaguzi, S.T.', en: 'Industrial Engineer — Ahmad Suheil Isaguzi, B.Eng.' },
+          story: {
+            id: 'Pendekatan kerja analitis, disiplin, dan sistematis dalam meningkatkan efisiensi, mutu, serta produktivitas industri.',
+            en: 'Analytical, disciplined, and systematic engineering mindset focused on efficiency, quality, and industrial productivity.'
+          },
+          svgFallback: `
+            <svg viewBox="0 0 240 300" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="fb1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E7EFE9"/>
+                  <stop offset="100%" stop-color="#D4E2D7"/>
+                </linearGradient>
+              </defs>
+              <rect width="240" height="300" fill="url(#fb1)"/>
+              <circle cx="120" cy="112" r="44" fill="#6E8875" fill-opacity="0.22" stroke="#6E8875" stroke-width="2"/>
+              <circle cx="120" cy="104" r="22" fill="#6E8875" fill-opacity="0.5"/>
+              <path d="M72 222 C76 178, 164 178, 168 222" fill="#6E8875" fill-opacity="0.38" stroke="#6E8875" stroke-width="2"/>
+              <path d="M120 164 L114 196 L120 206 L126 196 Z" fill="#B89B7A"/>
+              <text x="120" y="262" text-anchor="middle" fill="#2C302E" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700">AHMAD SUHEIL</text>
+              <text x="120" y="280" text-anchor="middle" fill="#5D6661" font-family="JetBrains Mono, monospace" font-size="9">INDUSTRIAL ENGINEER</text>
+            </svg>`
+        },
+        {
+          id: 'bakrie',
+          num: '02',
+          defaultUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=720&q=80',
+          customUrl: null,
+          title: { id: 'Gudang Teknik — PT Bakrie Pipe Industries', en: 'Technical Warehouse — PT Bakrie Pipe Industries' },
+          sub: { id: 'Magang Aktif • Inventaris Spare Parts, 5R/5S & K3', en: 'Active Intern • Spare Parts Inventory, 5S & K3' },
+          story: {
+            id: 'Mengelola inventaris spare parts & material teknik di lingkungan manufaktur pipa baja dengan standar 5R/5S dan K3.',
+            en: 'Managing spare parts and technical material inventory inside steel pipe manufacturing under 5S and K3 standards.'
+          },
+          svgFallback: `
+            <svg viewBox="0 0 240 300" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="300" fill="#EAE5DC"/>
+              <rect x="34" y="64" width="172" height="122" rx="14" fill="#FCFBF9" stroke="#6E8875" stroke-width="2"/>
+              <circle cx="88" cy="126" r="28" fill="#6E8875" fill-opacity="0.2" stroke="#6E8875" stroke-width="2.5"/>
+              <circle cx="88" cy="126" r="12" fill="#B89B7A" fill-opacity="0.55"/>
+              <rect x="130" y="96" width="54" height="14" rx="5" fill="#6E8875" fill-opacity="0.45"/>
+              <rect x="130" y="120" width="54" height="14" rx="5" fill="#B89B7A" fill-opacity="0.45"/>
+              <rect x="130" y="144" width="38" height="14" rx="5" fill="#6E8875" fill-opacity="0.35"/>
+              <text x="120" y="232" text-anchor="middle" fill="#2C302E" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700">BAKRIE PIPE INDUSTRIES</text>
+              <text x="120" y="250" text-anchor="middle" fill="#6E8875" font-family="JetBrains Mono, monospace" font-size="9">WAREHOUSE GUDANG TEKNIK</text>
+            </svg>`
+        },
+        {
+          id: 'logistik',
+          num: '03',
+          defaultUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=720&q=80',
+          customUrl: null,
+          title: { id: 'Logistik & Supply Chain', en: 'Logistics & Supply Chain' },
+          sub: { id: 'PT GoTo Logistik & PT DSV Solution — Outbound & Efisiensi', en: 'PT GoTo Logistics & PT DSV Solution — Outbound & Efficiency' },
+          story: {
+            id: 'Pengalaman operasional outbound: sortir presisi, verifikasi akurasi data, bongkar-muat, wrapping, dan target pengiriman.',
+            en: 'Hands-on outbound logistics: precision sorting, dispatch data accuracy, loading/unloading, re-wrapping, and SLA targets.'
+          },
+          svgFallback: `
+            <svg viewBox="0 0 240 300" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="300" fill="#E6ECE7"/>
+              <rect x="44" y="88" width="66" height="62" rx="10" fill="#B89B7A" fill-opacity="0.45" stroke="#B89B7A" stroke-width="2"/>
+              <rect x="126" y="72" width="70" height="78" rx="10" fill="#6E8875" fill-opacity="0.35" stroke="#6E8875" stroke-width="2"/>
+              <path d="M36 176 H204" stroke="#6E8875" stroke-width="3" stroke-dasharray="7 6"/>
+              <circle cx="78" cy="176" r="7" fill="#6E8875"/>
+              <circle cx="162" cy="176" r="7" fill="#B89B7A"/>
+              <text x="120" y="232" text-anchor="middle" fill="#2C302E" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700">LOGISTIK &amp; OUTBOUND</text>
+              <text x="120" y="250" text-anchor="middle" fill="#5D6661" font-family="JetBrains Mono, monospace" font-size="9">GOTO LOGISTIK • DSV</text>
+            </svg>`
+        },
+        {
+          id: 'kampus',
+          num: '04',
+          defaultUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=720&q=80',
+          customUrl: null,
+          title: { id: 'Kampus, Organisasi & Hobi', en: 'Campus, Leadership & Hobbies' },
+          sub: { id: 'Universitas Darma Persada, BEM/HMTI, Sepak Bola & Musik', en: 'Universitas Darma Persada, BEM/HMTI, Football & Music' },
+          story: {
+            id: 'Aktif membangun kolaborasi di BEM Fakultas Teknik & HMTI, serta menjaga keseimbangan energi lewat sepak bola dan musik.',
+            en: 'Active collaborator in BEM Faculty of Engineering & HMTI, balancing focus and teamwork through football and music.'
+          },
+          svgFallback: `
+            <svg viewBox="0 0 240 300" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <rect width="240" height="300" fill="#F2ECE2"/>
+              <polygon points="120,62 184,92 120,122 56,92" fill="#6E8875" fill-opacity="0.38" stroke="#6E8875" stroke-width="2"/>
+              <path d="M84 106 V142 C84 156, 156 156, 156 142 V106" fill="none" stroke="#6E8875" stroke-width="2"/>
+              <circle cx="88" cy="186" r="18" fill="#FCFBF9" stroke="#6E8875" stroke-width="2"/>
+              <path d="M138 198 V170 L166 164 V192" fill="none" stroke="#B89B7A" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="133" cy="198" r="5" fill="#B89B7A"/>
+              <circle cx="161" cy="192" r="5" fill="#B89B7A"/>
+              <text x="120" y="242" text-anchor="middle" fill="#2C302E" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700">UNSADA • HMTI • BEM</text>
+              <text x="120" y="260" text-anchor="middle" fill="#B89B7A" font-family="JetBrains Mono, monospace" font-size="9">SEPAK BOLA &amp; MUSIK</text>
+            </svg>`
+        }
+      ];
+
+      /* --------------------------------------------------------------------
+         3. JOURNEY & EXPERIENCE BENTO DATA (COMPLETE CV + BAKRIE PIPE FEATURED)
+         -------------------------------------------------------------------- */
+      const JOURNEY_ITEMS = [
+        {
+          id: 'bpi',
+          category: 'work',
+          featured: true,
+          span: 'lg:col-span-12',
+          badge: { id: 'MAGANG AKTIF', en: 'ACTIVE INTERN' },
+          period: { id: 'Sep 2026 – Sekarang (Aktif)', en: 'Sep 2026 – Present (Active)' },
+          org: 'PT Bakrie Pipe Industries',
+          role: { id: 'Magang, Warehouse Gudang Teknik', en: 'Intern, Technical Warehouse' },
+          location: { id: 'Warehouse Gudang Teknik • Manufaktur Pipa Baja', en: 'Technical Warehouse • Steel Pipe Manufacturing' },
+          tags: {
+            id: ['Warehouse Gudang Teknik', 'Inventaris Spare Parts', '5R/5S & K3', 'Manufaktur Pipa Baja'],
+            en: ['Technical Warehouse', 'Spare Parts Inventory', '5S & K3 Safety', 'Steel Pipe Manufacturing']
+          },
+          points: {
+            id: [
+              'Mengelola inventaris spare parts & material teknik guna mendukung pemeliharaan mesin produksi pipa baja.',
+              'Mencatat serta memverifikasi akurasi arus keluar-masuk stok gudang teknik secara sistematis dan teliti.',
+              'Menerapkan budaya kerja 5R/5S serta standar keselamatan K3 di lingkungan manufaktur.',
+              'Mendukung kelancaran operasional dan kesiapan ketersediaan komponen bagi tim produksi & maintenance.'
+            ],
+            en: [
+              'Managed spare parts & technical material inventory supporting steel pipe manufacturing maintenance.',
+              'Recorded and verified inbound/outbound stock accuracy across the technical warehouse systematically.',
+              'Implemented 5S workplace organization and K3 occupational safety standards on the plant floor.',
+              'Supported smooth operations and timely spare availability for production & maintenance teams.'
+            ]
+          }
+        },
+        {
+          id: 'goto',
+          category: 'work',
+          featured: false,
+          span: 'lg:col-span-4',
+          badge: { id: 'KERJA • TERINTEGRASI', en: 'WORK • INTEGRATED' },
+          period: { id: 'Dec 2023 – May 2024', en: 'Dec 2023 – May 2024' },
+          org: 'PT GoTo Logistik',
+          role: { id: 'Staff Outbound', en: 'Outbound Staff' },
+          location: { id: 'Logos MetroLink Medan Satria', en: 'Logos MetroLink Medan Satria' },
+          points: {
+            id: [
+              'Memilah (sortir) dan memeriksa barang secara teliti sebelum pengiriman.',
+              'Memastikan akurasi data serta ketepatan proses pengeluaran barang (outbound).',
+              'Mendukung kelancaran operasional gudang sesuai target perusahaan.',
+              'Menerapkan standar keselamatan kerja (K3) dan menjaga kualitas barang.'
+            ],
+            en: [
+              'Sorted and inspected goods carefully prior to outbound shipment.',
+              'Ensured data accuracy and precision across outbound dispatch workflows.',
+              'Supported smooth warehouse operations aligned with company KPI targets.',
+              'Maintained K3 safety standards and product quality integrity.'
+            ]
+          }
+        },
+        {
+          id: 'dsv',
+          category: 'work',
+          featured: false,
+          span: 'lg:col-span-4',
+          badge: { id: 'MAGANG • DISIPLIN & K3', en: 'INTERN • K3 & PRECISION' },
+          period: { id: 'Sep 2023 – Nov 2023', en: 'Sep 2023 – Nov 2023' },
+          org: 'PT DSV Solution',
+          role: { id: 'Magang, Outbound', en: 'Outbound Intern' },
+          location: { id: 'Pergudangan Z WSK F1-F20 Jl. Raya Bekasi KM.28, Medan Satria', en: 'Warehouse Z WSK F1-F20 Jl. Raya Bekasi KM.28, Medan Satria' },
+          points: {
+            id: [
+              'Bongkar dan muat barang dari truk secara disiplin dan sesuai standar K3.',
+              'Membersihkan serta melakukan wrapping kembali barang dengan rapi dan presisi.'
+            ],
+            en: [
+              'Loaded and unloaded cargo from trucks with discipline under K3 safety guidelines.',
+              'Cleaned and re-wrapped items neatly to maintain shipment protection.'
+            ]
+          }
+        },
+        {
+          id: 'hokben',
+          category: 'work',
+          featured: false,
+          span: 'lg:col-span-4',
+          badge: { id: 'KERJA • CEPAT & AKURAT', en: 'WORK • FAST & ACCURATE' },
+          period: { id: 'Aug 2022 – May 2023', en: 'Aug 2022 – May 2023' },
+          org: 'PT Eka Boga Inti (HokBen)',
+          role: { id: 'Crew Store', en: 'Store Crew' },
+          location: { id: 'Ruko Jakarta Garden City, Take Away', en: 'Ruko Jakarta Garden City, Take Away' },
+          points: {
+            id: [
+              'Melayani pelanggan dengan ramah dan mengoperasikan mesin kasir secara cepat & akurat.',
+              'Menyiapkan pesanan sesuai standar kualitas dan kebersihan perusahaan.',
+              'Mengelola stok, menjaga kebersihan area kerja, serta bekerja sama dalam tim.'
+            ],
+            en: [
+              'Served customers warmly and operated cashier registers swiftly and accurately.',
+              'Prepared orders adhering strictly to quality and hygiene standards.',
+              'Managed daily store stock, workstation hygiene, and collaborative teamwork.'
+            ]
+          }
+        },
+        {
+          id: 'unsada',
+          category: 'education',
+          featured: false,
+          span: 'lg:col-span-6',
+          badge: { id: 'PENDIDIKAN • IPK 3.31 / 4.00', en: 'EDUCATION • GPA 3.31 / 4.00' },
+          period: { id: 'Aug 2020 – Mar 2026', en: 'Aug 2020 – Mar 2026' },
+          org: 'Universitas Darma Persada',
+          role: { id: 'S1 Teknik Industri', en: 'Bachelor of Industrial Engineering' },
+          location: { id: 'Jakarta Timur, DKI Jakarta', en: 'East Jakarta, DKI Jakarta' },
+          points: {
+            id: [
+              'Menguasai PPIC, Pengendalian Mutu, Lean Manufacturing, Six Sigma, Supply Chain, dan Pengukuran Kerja.',
+              'Partisipasi aktif dalam PKKMB (Pembentukan Karakter, Kepemimpinan, dan Manajemen).'
+            ],
+            en: [
+              'Trained in PPIC, Quality Control, Lean Manufacturing, Six Sigma, Supply Chain, and Work Measurement.',
+              'Active participation in PKKMB (Character Building, Leadership, and Management).'
+            ]
+          }
+        },
+        {
+          id: 'smk',
+          category: 'education',
+          featured: false,
+          span: 'lg:col-span-6',
+          hasSchoolDrawer: true,
+          badge: { id: 'PENDIDIKAN • NILAI 82.54/100', en: 'EDUCATION • SCORE 82.54/100' },
+          period: { id: 'Apr 2018 – May 2020', en: 'Apr 2018 – May 2020' },
+          org: 'SMK Bina Mandiri Bekasi',
+          role: { id: 'Teknik Sepeda Motor', en: 'Motorcycle Engineering' },
+          location: { id: 'Bekasi, Jawa Barat', en: 'Bekasi, West Java' },
+          points: {
+            id: [
+              'Melakukan pemeriksaan, perawatan, dan servis berkala (oli, rem, rantai, aki, kelistrikan).',
+              'Troubleshooting mesin serta memahami sistem bahan bakar/injeksi, kelistrikan, dan transmisi daya.'
+            ],
+            en: [
+              'Performed periodic inspections and servicing (oil, brakes, chain, battery, electrical checks).',
+              'Engine troubleshooting across fuel/injection, electrical, and power transmission systems.'
+            ]
+          }
+        },
+        {
+          id: 'hmti',
+          category: 'organization',
+          featured: false,
+          span: 'lg:col-span-6',
+          badge: { id: 'ORGANISASI • HMTI', en: 'ORGANIZATION • HMTI' },
+          period: { id: 'Jun 2022 – Oct 2024', en: 'Jun 2022 – Oct 2024' },
+          org: 'Himpunan Mahasiswa Teknik Industri (HMTI)',
+          role: { id: 'Staff Humas', en: 'Public Relations Staff' },
+          location: { id: 'Jakarta', en: 'Jakarta' },
+          points: {
+            id: [
+              'Berkolaborasi dengan mahasiswa, dosen, dan pihak terkait dalam kegiatan pengembangan departemen.',
+              'Menyelenggarakan seminar, pelatihan, diskusi edukatif, serta menghimpun aspirasi evaluasi jurusan.',
+              'Mendorong lingkungan kemahasiswaan yang aktif, inovatif, adaptif, dan tanggap perkembangan industri.'
+            ],
+            en: [
+              'Collaborated with students, lecturers, and stakeholders on department advancement programs.',
+              'Organized seminars, workshops, discussions, and relayed student feedback for department evaluation.',
+              'Fostered an active, innovative, adaptive student community responsive to industry trends.'
+            ]
+          }
+        },
+        {
+          id: 'bem',
+          category: 'organization',
+          featured: false,
+          span: 'lg:col-span-6',
+          badge: { id: 'ORGANISASI • BEM FT', en: 'ORGANIZATION • BEM FT' },
+          period: { id: 'May 2022 – Apr 2023', en: 'May 2022 – Apr 2023' },
+          org: 'BEM Fakultas Teknik',
+          role: { id: 'Staff Pengembangan Mahasiswa Aktif', en: 'Active Student Development Staff' },
+          location: { id: 'Jakarta', en: 'Jakarta' },
+          points: {
+            id: [
+              'Merancang dan melaksanakan program kerja yang mendukung potensi, kompetensi, dan keterampilan mahasiswa.',
+              'Terlibat aktif dalam kegiatan akademik/non-akademik, seminar, serta penyaluran aspirasi mahasiswa.',
+              'Mengasah komunikasi, kerja sama tim, kepemimpinan, manajemen waktu, dan pemecahan masalah.'
+            ],
+            en: [
+              'Designed and executed work programs enhancing student potential and competencies.',
+              'Contributed to academic/non-academic events, seminars, and student aspiration advocacy.',
+              'Strengthened communication, teamwork, leadership, time management, and problem solving.'
+            ]
+          }
+        }
+      ];
+
+      /* --------------------------------------------------------------------
+         4. PROCESS LAB DATA (DUAL-MODE: GUDANG TEKNIK BPI & LOGISTIK OUTBOUND)
+         -------------------------------------------------------------------- */
+      const PROCESS_MODES = {
+        bpi: {
+          nodes: [
+            { title: '01. Intake', sub: 'SPARE PARTS' },
+            { title: '02. Verifikasi', sub: 'OPNAME & QC' },
+            { title: '03. Tata 5R', sub: 'RACK & BIN' },
+            { title: '04. Cek K3', sub: 'SAFETY PREP' },
+            { title: '05. Suplai', sub: 'TO PRODUCTION' }
+          ],
+          details: [
+            {
+              badge: 'PT Bakrie Pipe Industries',
+              title: { id: 'STASIUN 01 // PENERIMAAN SPARE PARTS & MATERIAL TEKNIK', en: 'STATION 01 // SPARE PARTS & TECHNICAL MATERIAL INTAKE' },
+              desc: { id: 'Pencatatan rapi saat suku cadang dan peralatan maintenance tiba di Gudang Teknik agar arus inventaris selalu akurat.', en: 'Structured intake logging as spare parts and maintenance supplies arrive at the Technical Warehouse.' }
+            },
+            {
+              badge: 'Stock Opname & QC',
+              title: { id: 'STASIUN 02 // VERIFIKASI FISIK & DATA STOK', en: 'STATION 02 // PHYSICAL & SYSTEM VERIFICATION' },
+              desc: { id: 'Pengecekan spesifikasi teknis serta kesesuaian jumlah fisik dengan catatan sistem untuk menjaga akurasi data.', en: 'Technical spec checks and physical-to-system reconciliation sustaining high inventory accuracy.' }
+            },
+            {
+              badge: 'Budaya 5R / 5S',
+              title: { id: 'STASIUN 03 // PENATAAN RAK 5R / 5S', en: 'STATION 03 // 5S RACK & BIN LAYOUT' },
+              desc: { id: 'Pengelompokan suku cadang berdasarkan kode dan frekuensi pemakaian dengan prinsip 5R/5S untuk mempercepat pengambilan.', en: 'Categorized bin placement using 5S standards to eliminate search delays during urgent picking.' }
+            },
+            {
+              badge: 'Standar K3 Manufaktur',
+              title: { id: 'STASIUN 04 // PROTEKSI & KEPATUHAN K3', en: 'STATION 04 // PROTECTION & K3 SAFETY CHECK' },
+              desc: { id: 'Pemeriksaan keselamatan kerja (APD & penanganan material baja) sebelum komponen dikirim menuju lini produksi.', en: 'PPE and heavy steel part handling checks prior to dispatch toward manufacturing lines.' }
+            },
+            {
+              badge: 'Tim Produksi & Maintenance',
+              title: { id: 'STASIUN 05 // SUPLAI TEPAT WAKTU KE LINI', en: 'STATION 05 // TIMELY HANDOVER TO LINE' },
+              desc: { id: 'Pengeluaran komponen tepat waktu untuk tim produksi & maintenance demi kontinuitas pabrik pipa baja.', en: 'Punctual spare-part handover keeping steel pipe production machinery running smoothly.' }
+            }
+          ]
+        },
+        outbound: {
+          nodes: [
+            { title: '01. Unload', sub: 'RECEIVING' },
+            { title: '02. Inspeksi', sub: 'QUALITY CHECK' },
+            { title: '03. Sortir', sub: 'SKU & ROUTE' },
+            { title: '04. Wrapping', sub: 'SEAL & K3' },
+            { title: '05. Outbound', sub: 'DISPATCH' }
+          ],
+          details: [
+            {
+              badge: 'PT DSV Solution',
+              title: { id: 'STASIUN 01 // BONGKAR MUAT (UNLOADING)', en: 'STATION 01 // TRUCK UNLOADING' },
+              desc: { id: 'Bongkar muat barang dari truk secara tertib dengan mengutamakan keselamatan kerja dan keutuhan barang.', en: 'Orderly truck unloading prioritizing worker safety and intact cargo packaging.' }
+            },
+            {
+              badge: 'Quality Control',
+              title: { id: 'STASIUN 02 // INSPEKSI & PEMBERSIHAN', en: 'STATION 02 // INSPECTION & CLEANING' },
+              desc: { id: 'Pemeriksaan fisik dan pembersihan barang sebelum masuk tahapan sortir outbound.', en: 'Physical condition inspection and cleaning prior to entering the outbound sorting lane.' }
+            },
+            {
+              badge: 'PT GoTo Logistik',
+              title: { id: 'STASIUN 03 // SORTIR & AKURASI DATA', en: 'STATION 03 // SORTING & DATA ACCURACY' },
+              desc: { id: 'Pemilahan barang sesuai rute pengiriman disertai validasi data guna memastikan ketepatan pengeluaran.', en: 'Route-based sorting paired with scan verification for high dispatch accuracy.' }
+            },
+            {
+              badge: 'PT DSV & GoTo',
+              title: { id: 'STASIUN 04 // WRAPPING & STANDAR K3', en: 'STATION 04 // WRAPPING & K3 STANDARDS' },
+              desc: { id: 'Pembungkusan ulang (wrapping) rapi sesuai standar K3 agar produk aman selama transit.', en: 'Clean re-wrapping under K3 protocols ensuring goods remain protected during delivery.' }
+            },
+            {
+              badge: 'Target Pengiriman',
+              title: { id: 'STASIUN 05 // PENGELUARAN OUTBOUND', en: 'STATION 05 // OUTBOUND DISPATCH' },
+              desc: { id: 'Pengeluaran barang tepat waktu selaras dengan jadwal armada dan target operasional gudang.', en: 'On-time outbound dispatch aligned with fleet departure schedules and warehouse KPIs.' }
+            }
+          ]
+        }
+      };
+
+      /* --------------------------------------------------------------------
+         5. 5-AXIS COMPETENCY RADAR & 23 INTERACTIVE SKILLS (12 HARD + 11 SOFT)
+         -------------------------------------------------------------------- */
+      const RADAR_AXES = [
+        {
+          id: 'warehouse',
+          short: { id: 'Gudang &\nRantai Pasok', en: 'Warehouse &\nSupply Chain' },
+          title: { id: 'Manajemen Gudang & Rantai Pasok', en: 'Warehouse & Supply Chain Mgmt' },
+          score: 94,
+          desc: {
+            id: 'Pengalaman langsung di Gudang Teknik (PT Bakrie Pipe Industries) serta Outbound Logistics (PT GoTo Logistik & PT DSV Solution).',
+            en: 'Hands-on experience in Technical Warehousing (PT Bakrie Pipe Industries) and Outbound Logistics (PT GoTo & PT DSV).'
+          }
+        },
+        {
+          id: 'lean',
+          short: { id: 'Lean &\nProses', en: 'Lean &\nProcess' },
+          title: { id: 'Lean & Perbaikan Proses', en: 'Lean & Process Improvement' },
+          score: 91,
+          desc: {
+            id: 'Menerapkan 5R/5S, Lean Manufacturing, Pengukuran Kerja, dan PPIC untuk menghilangkan pemborosan dan mempercepat siklus.',
+            en: 'Applies 5S, Lean Manufacturing, Work Measurement, and PPIC to eliminate waste and streamline cycle times.'
+          }
+        },
+        {
+          id: 'data',
+          short: { id: 'Analisis Data\n& Mutu', en: 'Data Analysis\n& Quality' },
+          title: { id: 'Analisis Data & Mutu', en: 'Data Analysis & Quality' },
+          score: 89,
+          desc: {
+            id: 'Terampil menggunakan Microsoft Excel, Minitab, Six Sigma, dan Pengendalian Mutu untuk menjaga akurasi stok dan menekan defect.',
+            en: 'Proficient in Microsoft Excel, Minitab, Six Sigma, and Quality Control to safeguard accuracy and minimize defects.'
+          }
+        },
+        {
+          id: 'leadership',
+          short: { id: 'Kepemimpinan\n& Kolaborasi', en: 'Leadership &\nCollaboration' },
+          title: { id: 'Kepemimpinan & Kolaborasi', en: 'Leadership & Collaboration' },
+          score: 90,
+          desc: {
+            id: 'Teruji melalui koordinasi lintas tim operasional serta peran aktif di HMTI (Staff Humas) dan BEM Fakultas Teknik.',
+            en: 'Proven across cross-functional operational teams alongside active roles in HMTI and BEM Faculty of Engineering.'
+          }
+        },
+        {
+          id: 'technical',
+          short: { id: 'Teknis &\nStandar K3', en: 'Technical &\nK3 Safety' },
+          title: { id: 'Teknis & K3', en: 'Technical & K3 Safety' },
+          score: 92,
+          desc: {
+            id: 'Berbekal fondasi teknis SMK Teknik Sepeda Motor, pemahaman spare parts manufaktur pipa baja, dan disiplin K3 tinggi.',
+            en: 'Backed by technical mechanical foundations, steel pipe manufacturing spare-part familiarity, and strict K3 discipline.'
+          }
+        }
+      ];
+
+      const SKILLS = [
+        // 12 Hard Skills
+        { id: 'excel', tab: 'hard', cluster: 'data', name: { id: 'Microsoft Excel', en: 'Microsoft Excel' }, where: 'PT Bakrie Pipe Industries • PT GoTo Logistik • PPIC', desc: { id: 'Mengelola log keluar-masuk spare parts, rekonsiliasi stok gudang teknik, dan rekap pelaporan operasional harian secara rapi.', en: 'Manages spare-part inbound/outbound logs, technical warehouse reconciliation, and clean daily reporting.' } },
+        { id: 'analisis_data', tab: 'hard', cluster: 'data', name: { id: 'Analisis Data', en: 'Data Analysis' }, where: 'Stock Opname BPI • Universitas Darma Persada', desc: { id: 'Memverifikasi kesesuaian stok fisik dan sistem, menelaah tren penggunaan komponen, serta mengidentifikasi peluang efisiensi.', en: 'Verifies physical-to-system stock accuracy, analyzes consumption trends, and spots efficiency opportunities.' } },
+        { id: 'ppic', tab: 'hard', cluster: 'lean', name: { id: 'PPIC', en: 'PPIC' }, where: 'Gudang Teknik BPI • S1 Teknik Industri', desc: { id: 'Mendukung perencanaan ketersediaan material teknik agar kebutuhan perawatan mesin dan produksi berjalan tanpa hambatan.', en: 'Supports inventory planning and technical material readiness so maintenance and production run smoothly.' } },
+        { id: 'qc', tab: 'hard', cluster: 'data', name: { id: 'Pengendalian Mutu', en: 'Quality Control' }, where: 'PT Bakrie Pipe • PT GoTo Logistik • HokBen', desc: { id: 'Melakukan pemeriksaan fisik, kecocokan spesifikasi suku cadang, serta kepatuhan standar mutu dan kebersihan.', en: 'Performs physical checks, part specification verification, and strict quality & hygiene compliance.' } },
+        { id: 'prod_mgmt', tab: 'hard', cluster: 'lean', name: { id: 'Manajemen Produksi', en: 'Production Management' }, where: 'Manufaktur Pipa Baja BPI • UNSADA', desc: { id: 'Memahami keterkaitan langsung kesiapan spare parts di gudang teknik terhadap keandalan lini produksi manufaktur.', en: 'Understands the direct link between technical warehouse readiness and manufacturing line uptime.' } },
+        { id: 'proc_imp', tab: 'hard', cluster: 'lean', name: { id: 'Perbaikan Proses', en: 'Process Improvement' }, where: 'Penataan 5R Gudang Teknik • Alur Outbound', desc: { id: 'Menyederhanakan alur pencatatan dan tata letak penyimpanan agar pengambilan barang lebih cepat dan minim kesalahan.', en: 'Streamlines logging workflows and bin layouts for faster retrieval and fewer handling errors.' } },
+        { id: 'lean', tab: 'hard', cluster: 'lean', name: { id: 'Lean Manufacturing', en: 'Lean Manufacturing' }, where: '5R/5S BPI • S1 Teknik Industri UNSADA', desc: { id: 'Menerapkan budaya 5R/5S dan pengurangan pemborosan (waste) di lingkungan gudang teknik maupun jalur logistik.', en: 'Applies 5S discipline and waste elimination across technical warehousing and outbound logistics.' } },
+        { id: 'six_sigma', tab: 'hard', cluster: 'data', name: { id: 'Six Sigma', en: 'Six Sigma' }, where: 'Universitas Darma Persada • Evaluasi Mutu', desc: { id: 'Menggunakan pola pikir berbasis data untuk mengurangi variansi proses serta mempertahankan akurasi tingkat tinggi.', en: 'Applies data-driven thinking to lower process variation and uphold consistently high accuracy.' } },
+        { id: 'scm', tab: 'hard', cluster: 'warehouse', name: { id: 'Manajemen Rantai Pasok', en: 'Supply Chain Management' }, where: 'PT Bakrie Pipe Industries • PT GoTo Logistik • PT DSV', desc: { id: 'Berpengalaman dalam rantai aliran material mulai dari penerimaan, gudang teknik, sortir outbound, hingga suplai tepat waktu.', en: 'Experienced across material flow from receiving and technical warehousing to outbound sorting and timely dispatch.' } },
+        { id: 'work_meas', tab: 'hard', cluster: 'lean', name: { id: 'Pengukuran Kerja', en: 'Work Measurement' }, where: 'S1 Teknik Industri UNSADA', desc: { id: 'Mengukur waktu siklus aktivitas operasional untuk menetapkan standar kerja yang efisien dan terukur.', en: 'Measures operational cycle times to help establish balanced, realistic work standards.' } },
+        { id: 'minitab', tab: 'hard', cluster: 'data', name: { id: 'Minitab', en: 'Minitab' }, where: 'Statistika Industri & Quality Control UNSADA', desc: { id: 'Mengolah data statistik untuk analisis kualitas, kapabilitas proses, dan evaluasi pengendalian mutu.', en: 'Utilizes statistical analysis for quality metrics, process capability, and control evaluation.' } },
+        { id: 'office', tab: 'hard', cluster: 'data', name: { id: 'Microsoft Office', en: 'Microsoft Office' }, where: 'Administrasi Gudang • HMTI • BEM FT', desc: { id: 'Menyusun dokumentasi prosedur, laporan stok inventaris, dan materi presentasi kegiatan secara terstruktur.', en: 'Prepares clear SOP documentation, inventory reports, and structured event presentations.' } },
+
+        // 11 Soft Skills
+        { id: 'analytical', tab: 'soft', cluster: 'data', name: { id: 'Berpikir Analitis', en: 'Analytical Thinking' }, where: 'Verifikasi Stok BPI • S1 Teknik Industri', desc: { id: 'Menelusuri akar masalah selisih stok atau hambatan alur kerja secara objektif berdasarkan data lapangan.', en: 'Investigates root causes of stock discrepancies or bottlenecks objectively using floor data.' } },
+        { id: 'problem_solving', tab: 'soft', cluster: 'technical', name: { id: 'Pemecahan Masalah', en: 'Problem Solving' }, where: 'Operasional Gudang • BEM FT • SMK Teknik', desc: { id: 'Mencari solusi cepat dan tepat guna saat menghadapi kebutuhan komponen mendesak maupun kendala teknis harian.', en: 'Delivers practical solutions for urgent component needs and daily technical floor issues.' } },
+        { id: 'communication', tab: 'soft', cluster: 'leadership', name: { id: 'Komunikasi', en: 'Communication' }, where: 'Koordinasi Maintenance BPI • Staff Humas HMTI', desc: { id: 'Menyampaikan informasi secara jelas kepada tim produksi, maintenance, rekan gudang, dosen, dan pelanggan.', en: 'Communicates clearly with production, maintenance, warehouse teams, lecturers, and customers.' } },
+        { id: 'teamwork', tab: 'soft', cluster: 'leadership', name: { id: 'Kerja Sama Tim', en: 'Teamwork' }, where: 'PT Bakrie Pipe • PT GoTo • HokBen', desc: { id: 'Kolaboratif saat bekerja lintas divisi sekaligus dapat diandalkan menuntaskan tanggung jawab secara mandiri.', en: 'Collaborative across departments while equally dependable executing tasks independently.' } },
+        { id: 'leadership', tab: 'soft', cluster: 'leadership', name: { id: 'Kepemimpinan', en: 'Leadership' }, where: 'HMTI • BEM Fakultas Teknik • OSIS/Paskibra', desc: { id: 'Berpengalaman menggerakkan program pengembangan mahasiswa, seminar, dan koordinasi kegiatan organisasi.', en: 'Experienced in coordinating student development programs, seminars, and team initiatives.' } },
+        { id: 'time_mgmt', tab: 'soft', cluster: 'warehouse', name: { id: 'Manajemen Waktu', en: 'Time Management' }, where: 'Studi S1, Pengalaman Kerja & Organisasi', desc: { id: 'Menjaga keseimbangan prioritas antara target suplai cepat, administrasi stok, dan tenggat operasional.', en: 'Balances urgent supply requests, inventory records, and operational deadlines calmly.' } },
+        { id: 'adaptability', tab: 'soft', cluster: 'warehouse', name: { id: 'Kemampuan Beradaptasi', en: 'Adaptability' }, where: 'HokBen → DSV → GoTo → Bakrie Pipe Industries', desc: { id: 'Cepat menyesuaikan diri lintas sektor mulai dari ritel cepat saji, logistik outbound, hingga manufaktur pipa baja.', en: 'Adapts smoothly across retail, e-commerce outbound logistics, and steel pipe manufacturing.' } },
+        { id: 'detail', tab: 'soft', cluster: 'data', name: { id: 'Ketelitian', en: 'Attention to Detail' }, where: 'Inventaris Spare Parts BPI • Sortir GoTo', desc: { id: 'Cermat memeriksa kode spare parts, jumlah fisik, label pengiriman, dan pencatatan keluar-masuk barang.', en: 'Carefully verifies spare-part codes, unit counts, dispatch labels, and transaction logs.' } },
+        { id: 'critical', tab: 'soft', cluster: 'lean', name: { id: 'Critical Thinking', en: 'Critical Thinking' }, where: 'Evaluasi Sistem & Perbaikan Proses', desc: { id: 'Mengevaluasi efektivitas alur kerja secara kritis untuk menjaga standar kualitas dan ketepatan operasional.', en: 'Critically assesses workflow effectiveness to uphold quality standards and dispatch precision.' } },
+        { id: 'discipline', tab: 'soft', cluster: 'technical', name: { id: 'Disiplin', en: 'Discipline' }, where: 'Standar K3 & 5R BPI • PT DSV • PT GoTo', desc: { id: 'Konsisten mematuhi protokol K3, budaya 5R/5S, ketepatan waktu, dan standar operasional gudang.', en: 'Consistently observes K3 safety rules, 5S habits, punctuality, and warehouse SOPs.' } },
+        { id: 'fast_learner', tab: 'soft', cluster: 'technical', name: { id: 'Fast Learner', en: 'Fast Learner' }, where: 'Katalog Material Teknik BPI • Sistem Gudang', desc: { id: 'Antusias mempelajari sistem pencatatan baru dan mengenali beragam komponen teknik di lingkungan manufaktur.', en: 'Quickly learns new warehouse systems and masters diverse manufacturing technical components.' } }
+      ];
+
+      /* --------------------------------------------------------------------
+         6. TOAST NOTIFICATION & IFRAME-SAFE CLIPBOARD HELPER
+         -------------------------------------------------------------------- */
+      function showToast(message) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const el = document.createElement('div');
+        el.className = 'toast-enter pointer-events-auto px-4 py-3 rounded-2xl border border-sage-soft shadow-lg text-xs sm:text-sm font-medium flex items-center gap-2.5 text-main';
+        el.style.backgroundColor = 'var(--bg-card-elevated)';
+        el.innerHTML = `<span class="w-2 h-2 rounded-full shrink-0" style="background: var(--sage);"></span><span>${message}</span>`;
+        container.appendChild(el);
+
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(8px)';
+          el.style.transition = 'all 0.3s ease';
+          setTimeout(() => el.remove(), 310);
+        }, 2600);
+      }
+
+      function copyText(value) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = value;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast(I18N[currentLang].toastCopied);
+        } catch (err) {
+          showToast(value);
+        }
+      }
+
+      /* --------------------------------------------------------------------
+         7. 4-PHOTO 3D ORBITING & ROTATING SHOWCASE ENGINE
+         -------------------------------------------------------------------- */
+      const orbitState = {
+        mode: 'orbit',          // 'orbit' | 'carousel'
+        angle: 0,               // Current angle in radians (0 = card 0 at front)
+        velocity: 0,            // Inertia velocity from drag
+        playing: !prefersReducedMotion,
+        hoverPaused: false,
+        direction: 1,           // 1 (clockwise) or -1 (counter-clockwise)
+        speedMode: 'slow',      // 'slow' | 'normal'
+        snapping: false,
+        snapTarget: 0,
+        frontIndex: 0,
+        isDragging: false,
+        dragStartX: 0,
+        dragMoved: false,
+        lastDragX: 0,
+        lastDragTime: 0,
+        lightboxOpen: false,
+        lightboxIndex: 0
+      };
+
+      let orbitCardEls = [];
+
+      function getPhotoSrc(photo) {
+        return photo.customUrl || photo.defaultUrl;
+      }
+
+      function buildOrbitCards() {
+        const layer = document.getElementById('orbit-cards-layer');
+        if (!layer) return;
+
+        layer.innerHTML = '';
+        orbitCardEls = DEFAULT_PHOTOS.map((photo, idx) => {
+          const card = document.createElement('div');
+          card.className = 'orbit-photo-card cursor-pointer group';
+          card.setAttribute('data-photo-idx', String(idx));
+          card.setAttribute('role', 'button');
+          card.setAttribute('tabindex', '0');
+
+          const src = getPhotoSrc(photo);
+          card.innerHTML = `
+            <div class="relative w-full h-full rounded-[15px] overflow-hidden bg-sage-wash">
+              <img src="${src}" alt="${photo.title[currentLang]}" draggable="false" class="orbit-photo-img w-full h-full object-cover select-none" />
+              <div class="orbit-svg-fallback hidden w-full h-full">${photo.svgFallback}</div>
+
+              <!-- Soft Bottom Scrim + Mini Label -->
+              <div class="absolute inset-x-0 bottom-0 px-2.5 pt-6 pb-2 bg-gradient-to-t from-[#1A1E1C]/80 via-[#1A1E1C]/35 to-transparent pointer-events-none">
+                <div class="font-mono text-[9px] text-[#E5E9E6]/85 tracking-wider">${photo.num}</div>
+                <div class="orbit-card-label font-display font-semibold text-[10.5px] text-[#FAF8F5] leading-tight truncate">${photo.title[currentLang]}</div>
+              </div>
+
+              <!-- Expand Icon on Front Card -->
+              <button type="button" data-expand-idx="${idx}" aria-label="Perbesar foto" class="orbit-expand-btn opacity-0 group-hover:opacity-100 absolute top-2 right-2 w-7 h-7 rounded-full backdrop-blur-md flex items-center justify-center text-[#FAF8F5] bg-[#1A1E1C]/55 hover:bg-[#6E8875] transition-all">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+                </svg>
+              </button>
+            </div>
+          `;
+
+          // Bulletproof inline SVG fallback on image error
+          const imgEl = card.querySelector('img');
+          const fbEl = card.querySelector('.orbit-svg-fallback');
+          imgEl.addEventListener('error', () => {
+            imgEl.classList.add('hidden');
+            fbEl.classList.remove('hidden');
+          });
+
+          // Click photo -> snap smoothly to front spotlight; click if already front -> keep or double click opens lightbox
+          card.addEventListener('click', (e) => {
+            if (orbitState.dragMoved) return;
+            const expandBtn = e.target.closest('.orbit-expand-btn');
+            if (expandBtn) {
+              e.stopPropagation();
+              openLightbox(idx);
+              return;
+            }
+            snapOrbitToIndex(idx);
+          });
+
+          card.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            openLightbox(idx);
+          });
+
+          card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              snapOrbitToIndex(idx);
+            }
+          });
+
+          layer.appendChild(card);
+          return card;
+        });
+
+        updateOrbitCaption(orbitState.frontIndex);
+      }
+
+      function refreshOrbitPhotoSources() {
+        orbitCardEls.forEach((card, idx) => {
+          const photo = DEFAULT_PHOTOS[idx];
+          const imgEl = card.querySelector('img');
+          const fbEl = card.querySelector('.orbit-svg-fallback');
+          imgEl.classList.remove('hidden');
+          fbEl.classList.add('hidden');
+          imgEl.src = getPhotoSrc(photo);
+          imgEl.alt = photo.title[currentLang];
+          const lbl = card.querySelector('.orbit-card-label');
+          if (lbl) lbl.textContent = photo.title[currentLang];
+        });
+        updateOrbitCaption(orbitState.frontIndex);
+        if (orbitState.lightboxOpen) renderLightboxContent();
+      }
+
+      function snapOrbitToIndex(idx) {
+        // Desired angle puts card idx at theta = 0 (mod 2*PI): angle + idx * (PI/2) ≡ 0 => target = -idx * (PI/2)
+        const baseTarget = -idx * (Math.PI / 2);
+        const twoPi = Math.PI * 2;
+        const diff = ((((baseTarget - orbitState.angle) % twoPi) + Math.PI * 3) % twoPi) - Math.PI;
+        orbitState.snapTarget = orbitState.angle + diff;
+        orbitState.snapping = true;
+        orbitState.velocity = 0;
+      }
+
+      function updateOrbitCaption(idx) {
+        const photo = DEFAULT_PHOTOS[idx] || DEFAULT_PHOTOS[0];
+        const idxEl = document.getElementById('orbit-caption-index');
+        const titleEl = document.getElementById('orbit-caption-title');
+        const subEl = document.getElementById('orbit-caption-sub');
+        if (idxEl) idxEl.textContent = `${photo.num} / 04`;
+        if (titleEl) titleEl.textContent = photo.title[currentLang];
+        if (subEl) subEl.textContent = photo.sub[currentLang];
+      }
+
+      function syncOrbitControlsUI() {
+        const orbitBtn = document.getElementById('orbit-mode-btn');
+        const carBtn = document.getElementById('carousel-mode-btn');
+        const playLabel = document.getElementById('orbit-play-label');
+        const speedLabel = document.getElementById('orbit-speed-label');
+        const centerEmblem = document.getElementById('orbit-center-emblem');
+
+        const activeCls = 'px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all bg-sage text-[#FCFBF9] dark:text-[#161B18] shadow-sm';
+        const idleCls = 'px-3 py-1.5 rounded-full text-[11px] font-medium transition-all text-muted hover:text-main';
+
+        if (orbitState.mode === 'orbit') {
+          orbitBtn.className = activeCls;
+          carBtn.className = idleCls;
+          if (centerEmblem) centerEmblem.style.opacity = '1';
+        } else {
+          carBtn.className = activeCls;
+          orbitBtn.className = idleCls;
+          if (centerEmblem) centerEmblem.style.opacity = '0.28';
+        }
+
+        if (playLabel) {
+          playLabel.textContent = orbitState.playing ? I18N[currentLang]['orbit.pause'] : I18N[currentLang]['orbit.play'];
+        }
+        if (speedLabel) {
+          speedLabel.textContent = orbitState.speedMode === 'slow' ? I18N[currentLang]['orbit.slow'] : I18N[currentLang]['orbit.normal'];
+        }
+      }
+
+      function renderOrbitFrame() {
+        const stage = document.getElementById('orbit-stage');
+        if (!stage || orbitCardEls.length === 0) return;
+
+        const w = stage.clientWidth || 460;
+        const h = stage.clientHeight || 350;
+
+        let bestDepth = -1;
+        let bestIdx = 0;
+
+        for (let i = 0; i < orbitCardEls.length; i++) {
+          const card = orbitCardEls[i];
+          const theta = orbitState.angle + i * (Math.PI / 2);
+          const sinT = Math.sin(theta);
+          const cosT = Math.cos(theta);
+          const depth = (cosT + 1) / 2; // 0 (back) -> 1 (front)
+
+          let x, y, scale, rotY, opacity, blurPx;
+
+          if (orbitState.mode === 'orbit') {
+            // Circular 3D Orbit around central rotating SVG badge
+            const rx = Math.min(170, w * 0.33);
+            const ry = Math.min(82, h * 0.23);
+            x = sinT * rx;
+            y = cosT * ry + 4;
+            scale = 0.68 + depth * 0.38;
+            rotY = -sinT * 14;
+            opacity = 0.48 + depth * 0.52;
+            blurPx = Math.max(0, (1 - depth) * 1.35);
+          } else {
+            // Larger tilted 3D Carousel 360° Gallery Ring
+            const rx = Math.min(188, w * 0.37);
+            const ry = Math.min(36, h * 0.1);
+            x = sinT * rx;
+            y = cosT * ry - 2;
+            scale = 0.64 + depth * 0.54;
+            rotY = -sinT * 30;
+            opacity = 0.36 + depth * 0.64;
+            blurPx = Math.max(0, (1 - depth) * 1.9);
+          }
+
+          // z-index spans 10..40; central emblem is 22 so cards glide naturally behind & in front of it!
+          const zIndex = Math.round(depth * 30) + 10;
+
+          card.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)}) rotateY(${rotY.toFixed(1)}deg)`;
+          card.style.opacity = opacity.toFixed(3);
+          card.style.zIndex = String(zIndex);
+          card.style.filter = blurPx > 0.12 ? `blur(${blurPx.toFixed(2)}px)` : 'none';
+
+          if (depth > bestDepth) {
+            bestDepth = depth;
+            bestIdx = i;
+          }
+        }
+
+        if (bestIdx !== orbitState.frontIndex) {
+          orbitState.frontIndex = bestIdx;
+          updateOrbitCaption(bestIdx);
+        }
+
+        for (let i = 0; i < orbitCardEls.length; i++) {
+          const isFront = i === bestIdx;
+          orbitCardEls[i].classList.toggle('is-front', isFront);
+          const expBtn = orbitCardEls[i].querySelector('.orbit-expand-btn');
+          if (expBtn) expBtn.style.pointerEvents = isFront ? 'auto' : 'none';
+        }
+      }
+
+      /* Lightbox Functions */
+      function openLightbox(idx) {
+        orbitState.lightboxIndex = idx;
+        orbitState.lightboxOpen = true;
+        const modal = document.getElementById('photo-lightbox');
+        if (!modal) return;
+        renderLightboxContent();
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        orbitState.lightboxOpen = false;
+        const modal = document.getElementById('photo-lightbox');
+        if (modal) modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      function renderLightboxContent() {
+        const photo = DEFAULT_PHOTOS[orbitState.lightboxIndex] || DEFAULT_PHOTOS[0];
+        document.getElementById('lb-badge').textContent = `${photo.num} / 04`;
+        document.getElementById('lb-title').textContent = photo.title[currentLang];
+        document.getElementById('lb-desc').textContent = `${photo.sub[currentLang]} — ${photo.story[currentLang]}`;
+
+        const img = document.getElementById('lb-img');
+        const fb = document.getElementById('lb-svg-fallback');
+        img.classList.remove('hidden');
+        fb.classList.add('hidden');
+        fb.innerHTML = photo.svgFallback;
+        img.onerror = () => {
+          img.classList.add('hidden');
+          fb.classList.remove('hidden');
+        };
+        img.src = getPhotoSrc(photo);
+        img.alt = photo.title[currentLang];
+      }
+
+      function initOrbitShowcase() {
+        buildOrbitCards();
+        syncOrbitControlsUI();
+
+        const stage = document.getElementById('orbit-stage');
+
+        // Smooth hover pause so visitors can inspect comfortably
+        stage.addEventListener('mouseenter', () => { orbitState.hoverPaused = true; });
+        stage.addEventListener('mouseleave', () => { orbitState.hoverPaused = false; });
+
+        // Horizontal Drag / Touch Swipe with Smooth Inertia
+        function onPointerDown(clientX) {
+          orbitState.isDragging = true;
+          orbitState.snapping = false;
+          orbitState.dragMoved = false;
+          orbitState.dragStartX = clientX;
+          orbitState.lastDragX = clientX;
+          orbitState.lastDragTime = performance.now();
+          orbitState.velocity = 0;
+        }
+
+        function onPointerMove(clientX) {
+          if (!orbitState.isDragging) return;
+          const now = performance.now();
+          const dx = clientX - orbitState.lastDragX;
+          const dt = Math.max(8, now - orbitState.lastDragTime);
+
+          if (Math.abs(clientX - orbitState.dragStartX) > 6) {
+            orbitState.dragMoved = true;
+          }
+
+          const deltaAngle = dx * 0.0085;
+          orbitState.angle += deltaAngle;
+          orbitState.velocity = (deltaAngle / dt) * 16;
+
+          orbitState.lastDragX = clientX;
+          orbitState.lastDragTime = now;
+        }
+
+        function onPointerUp() {
+          if (!orbitState.isDragging) return;
+          orbitState.isDragging = false;
+          setTimeout(() => { orbitState.dragMoved = false; }, 60);
+        }
+
+        stage.addEventListener('mousedown', (e) => {
+          if (e.button !== 0) return;
+          onPointerDown(e.clientX);
+        });
+        window.addEventListener('mousemove', (e) => onPointerMove(e.clientX));
+        window.addEventListener('mouseup', onPointerUp);
+
+        stage.addEventListener('touchstart', (e) => {
+          if (e.touches.length === 1) onPointerDown(e.touches[0].clientX);
+        }, { passive: true });
+        stage.addEventListener('touchmove', (e) => {
+          if (e.touches.length === 1) onPointerMove(e.touches[0].clientX);
+        }, { passive: true });
+        stage.addEventListener('touchend', onPointerUp);
+
+        // Mode toggles
+        document.getElementById('orbit-mode-btn').addEventListener('click', () => {
+          orbitState.mode = 'orbit';
+          syncOrbitControlsUI();
+        });
+        document.getElementById('carousel-mode-btn').addEventListener('click', () => {
+          orbitState.mode = 'carousel';
+          syncOrbitControlsUI();
+        });
+
+        // Mini Controls
+        document.getElementById('orbit-play-btn').addEventListener('click', () => {
+          orbitState.playing = !orbitState.playing;
+          syncOrbitControlsUI();
+        });
+        document.getElementById('orbit-reverse-btn').addEventListener('click', () => {
+          orbitState.direction *= -1;
+          orbitState.snapping = false;
+        });
+        document.getElementById('orbit-speed-btn').addEventListener('click', () => {
+          orbitState.speedMode = orbitState.speedMode === 'slow' ? 'normal' : 'slow';
+          syncOrbitControlsUI();
+        });
+        document.getElementById('orbit-prev-btn').addEventListener('click', () => {
+          const prevIdx = (orbitState.frontIndex + 3) % 4;
+          snapOrbitToIndex(prevIdx);
+        });
+        document.getElementById('orbit-next-btn').addEventListener('click', () => {
+          const nextIdx = (orbitState.frontIndex + 1) % 4;
+          snapOrbitToIndex(nextIdx);
+        });
+
+        // Lightbox Controls
+        document.getElementById('open-lightbox-btn').addEventListener('click', () => {
+          openLightbox(orbitState.frontIndex);
+        });
+        document.getElementById('lb-close-btn').addEventListener('click', closeLightbox);
+        document.getElementById('photo-lightbox').addEventListener('click', (e) => {
+          if (e.target.id === 'photo-lightbox') closeLightbox();
+        });
+        document.getElementById('lb-prev-btn').addEventListener('click', () => {
+          orbitState.lightboxIndex = (orbitState.lightboxIndex + 3) % 4;
+          snapOrbitToIndex(orbitState.lightboxIndex);
+          renderLightboxContent();
+        });
+        document.getElementById('lb-next-btn').addEventListener('click', () => {
+          orbitState.lightboxIndex = (orbitState.lightboxIndex + 1) % 4;
+          snapOrbitToIndex(orbitState.lightboxIndex);
+          renderLightboxContent();
+        });
+        window.addEventListener('keydown', (e) => {
+          if (!orbitState.lightboxOpen) return;
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowRight') {
+            orbitState.lightboxIndex = (orbitState.lightboxIndex + 1) % 4;
+            snapOrbitToIndex(orbitState.lightboxIndex);
+            renderLightboxContent();
+          }
+          if (e.key === 'ArrowLeft') {
+            orbitState.lightboxIndex = (orbitState.lightboxIndex + 3) % 4;
+            snapOrbitToIndex(orbitState.lightboxIndex);
+            renderLightboxContent();
+          }
+        });
+
+        // Upload Tray Toggle & Local Photo Preview (Batch 1–4 OR Individual Slot)
+        const trayToggleBtn = document.getElementById('toggle-upload-tray-btn');
+        const trayPanel = document.getElementById('upload-tray-panel');
+        trayToggleBtn.addEventListener('click', () => trayPanel.classList.toggle('hidden'));
+
+        function assignCustomPhoto(slotIdx, file) {
+          if (!file || !file.type.startsWith('image/')) return;
+          try {
+            if (DEFAULT_PHOTOS[slotIdx].customUrl) {
+              URL.revokeObjectURL(DEFAULT_PHOTOS[slotIdx].customUrl);
+            }
+            DEFAULT_PHOTOS[slotIdx].customUrl = URL.createObjectURL(file);
+          } catch (err) {
+            // Safe fallback
+          }
+        }
+
+        document.getElementById('batch-photo-upload').addEventListener('change', (e) => {
+          const files = Array.from(e.target.files || []).slice(0, 4);
+          if (files.length === 0) return;
+          files.forEach((file, idx) => assignCustomPhoto(idx, file));
+          refreshOrbitPhotoSources();
+          snapOrbitToIndex(0);
+          showToast(I18N[currentLang].toastPhotoUpdated);
+          e.target.value = '';
+        });
+
+        document.querySelectorAll('.slot-photo-input').forEach((input) => {
+          input.addEventListener('change', (e) => {
+            const slotIdx = parseInt(input.getAttribute('data-slot-input'), 10);
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            assignCustomPhoto(slotIdx, file);
+            refreshOrbitPhotoSources();
+            snapOrbitToIndex(slotIdx);
+            showToast(I18N[currentLang].toastPhotoUpdated);
+            e.target.value = '';
+          });
+        });
+
+        document.getElementById('reset-photos-btn').addEventListener('click', () => {
+          DEFAULT_PHOTOS.forEach((p) => {
+            if (p.customUrl) {
+              try { URL.revokeObjectURL(p.customUrl); } catch (e) {}
+              p.customUrl = null;
+            }
+          });
+          refreshOrbitPhotoSources();
+          showToast(I18N[currentLang].toastPhotosReset);
+        });
+
+        // Smooth 60fps Orbital Animation Loop
+        let lastTime = performance.now();
+        function animateOrbit(now) {
+          const dt = Math.min(0.05, (now - lastTime) / 1000);
+          lastTime = now;
+
+          if (!orbitState.isDragging) {
+            if (orbitState.snapping) {
+              const diff = orbitState.snapTarget - orbitState.angle;
+              if (Math.abs(diff) < 0.004) {
+                orbitState.angle = orbitState.snapTarget;
+                orbitState.snapping = false;
+              } else {
+                orbitState.angle += diff * Math.min(1, dt * 7.5);
+              }
+            } else {
+              // Apply gentle drag inertia decay
+              if (Math.abs(orbitState.velocity) > 0.0005) {
+                orbitState.angle += orbitState.velocity;
+                orbitState.velocity *= 0.93;
+              } else {
+                orbitState.velocity = 0;
+              }
+
+              // Calm auto-orbit when active, not hovered, and lightbox closed
+              if (orbitState.playing && !orbitState.hoverPaused && !orbitState.lightboxOpen) {
+                const radPerSec = orbitState.speedMode === 'slow' ? 0.34 : 0.72;
+                orbitState.angle += dt * radPerSec * orbitState.direction;
+              }
+            }
+          }
+
+          renderOrbitFrame();
+          requestAnimationFrame(animateOrbit);
+        }
+
+        requestAnimationFrame(animateOrbit);
+      }
+
+      /* --------------------------------------------------------------------
+         8. TYPING ANIMATION FOR HERO ROLE SUBTITLE
+         -------------------------------------------------------------------- */
+      let typingTimer = null;
+
+      function startTypingRole() {
+        clearTimeout(typingTimer);
+        const el = document.getElementById('typing-role-text');
+        if (!el) return;
+
+        const roles = I18N[currentLang].typingRoles;
+        if (prefersReducedMotion) {
+          el.textContent = roles[0];
+          return;
+        }
+
+        let roleIdx = 0;
+        let charIdx = 0;
+        let deleting = false;
+
+        function tick() {
+          const word = roles[roleIdx];
+          if (!deleting) {
+            charIdx++;
+            el.textContent = word.slice(0, charIdx);
+            if (charIdx === word.length) {
+              deleting = true;
+              typingTimer = setTimeout(tick, 2200);
+              return;
+            }
+            typingTimer = setTimeout(tick, 62);
+          } else {
+            charIdx--;
+            el.textContent = word.slice(0, charIdx);
+            if (charIdx === 0) {
+              deleting = false;
+              roleIdx = (roleIdx + 1) % roles.length;
+              typingTimer = setTimeout(tick, 320);
+              return;
+            }
+            typingTimer = setTimeout(tick, 34);
+          }
+        }
+        tick();
+      }
+
+      /* --------------------------------------------------------------------
+         9. LIGHT & SOFT DARK MODE TOGGLE (LOCALSTORAGE PERSISTED)
+         -------------------------------------------------------------------- */
+      function initThemeToggle() {
+        const btn = document.getElementById('theme-toggle-btn');
+        const sun = document.getElementById('icon-sun');
+        const moon = document.getElementById('icon-moon');
+        const root = document.documentElement;
+
+        function syncIcons() {
+          const isDark = root.classList.contains('dark');
+          sun.classList.toggle('hidden', !isDark);
+          moon.classList.toggle('hidden', isDark);
+        }
+
+        syncIcons();
+
+        btn.addEventListener('click', () => {
+          const willBeDark = !root.classList.contains('dark');
+          root.classList.toggle('dark', willBeDark);
+          syncIcons();
+          try {
+            localStorage.setItem('asi-theme-mode', willBeDark ? 'dark' : 'light');
+          } catch (e) {}
+          syncLangButtonStyles();
+          renderRadar();
+          showToast(willBeDark ? I18N[currentLang].toastThemeDark : I18N[currentLang].toastThemeLight);
+        });
+      }
+
+      /* --------------------------------------------------------------------
+         10. BILINGUAL SWITCHER (ID / EN)
+         -------------------------------------------------------------------- */
+      function syncLangButtonStyles() {
+        const idBtn = document.getElementById('lang-id-btn');
+        const enBtn = document.getElementById('lang-en-btn');
+        const darkText = document.documentElement.classList.contains('dark') ? '#161B18' : '#FCFBF9';
+
+        if (currentLang === 'id') {
+          idBtn.style.backgroundColor = 'var(--sage)';
+          idBtn.style.color = darkText;
+          enBtn.style.backgroundColor = 'transparent';
+          enBtn.style.color = 'var(--text-secondary)';
+        } else {
+          enBtn.style.backgroundColor = 'var(--sage)';
+          enBtn.style.color = darkText;
+          idBtn.style.backgroundColor = 'transparent';
+          idBtn.style.color = 'var(--text-secondary)';
+        }
+      }
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        syncLangButtonStyles();
+
+        const dict = I18N[lang];
+        document.querySelectorAll('[data-i18n]').forEach((node) => {
+          const key = node.getAttribute('data-i18n');
+          if (dict[key]) node.textContent = dict[key];
+        });
+
+        const caption = document.getElementById('svg-caption');
+        if (caption) caption.textContent = dict.svgCaption;
+
+        startTypingRole();
+        refreshOrbitPhotoSources();
+        syncOrbitControlsUI();
+        renderJourneyGrid();
+        syncJourneyFilterStyles();
+        syncSimModeUI();
+        updateStageDetails(selectedStageIdx);
+        updateSimMetrics();
+        renderRadar();
+        renderSkillPills();
+        updateSkillContext(selectedSkillId);
+        syncSkillTabStyles();
+      }
+
+      /* --------------------------------------------------------------------
+         11. MULTI-LAYER ORGANIC PARALLAX SCROLL & READING PROGRESS BAR
+         -------------------------------------------------------------------- */
+      function initParallaxAndProgress() {
+        const layers = Array.from(document.querySelectorAll('[data-parallax-speed]'));
+        const gearA = document.getElementById('parallax-gear-a');
+        const gearB = document.getElementById('parallax-gear-b');
+        const progressBar = document.getElementById('scroll-progress-bar');
+
+        function updateProgressBar(y) {
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (y / maxScroll) * 100)) : 0;
+          if (progressBar) progressBar.style.width = `${pct.toFixed(2)}%`;
+        }
+
+        if (prefersReducedMotion) {
+          window.addEventListener('scroll', () => updateProgressBar(window.scrollY || 0), { passive: true });
+          updateProgressBar(window.scrollY || 0);
+          return;
+        }
+
+        let currentY = window.scrollY || 0;
+        function animateLoop() {
+          const targetY = window.scrollY || window.pageYOffset;
+          currentY += (targetY - currentY) * 0.085;
+
+          for (let i = 0; i < layers.length; i++) {
+            const el = layers[i];
+            const speed = parseFloat(el.getAttribute('data-parallax-speed')) || 0;
+            el.style.transform = `translate3d(0, ${(currentY * speed).toFixed(2)}px, 0)`;
+          }
+
+          if (gearA) gearA.style.transform = `rotate(${(currentY * 0.045).toFixed(2)}deg)`;
+          if (gearB) gearB.style.transform = `rotate(${(-currentY * 0.06).toFixed(2)}deg)`;
+
+          updateProgressBar(targetY);
+          requestAnimationFrame(animateLoop);
+        }
+
+        requestAnimationFrame(animateLoop);
+      }
+
+      /* --------------------------------------------------------------------
+         12. AMBIENT CURSOR GLOW INSIDE BENTO TILES
+         -------------------------------------------------------------------- */
+      function initBentoGlow() {
+        if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
+        document.addEventListener('mousemove', (e) => {
+          const tile = e.target.closest('.bento-card, .bento-elevated');
+          if (!tile) return;
+          const rect = tile.getBoundingClientRect();
+          tile.style.setProperty('--mouse-x', `${(e.clientX - rect.left).toFixed(1)}px`);
+          tile.style.setProperty('--mouse-y', `${(e.clientY - rect.top).toFixed(1)}px`);
+        });
+      }
+
+      /* --------------------------------------------------------------------
+         13. SCROLL REVEAL, ANIMATED KPI COUNTERS & ACTIVE NAV HIGHLIGHT
+         -------------------------------------------------------------------- */
+      function initObservers() {
+        const revealObs = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('is-visible');
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => revealObs.observe(el));
+
+        // Animated KPI Count-up
+        let kpiDone = false;
+        const kpiGrid = document.getElementById('kpi-grid');
+        if (kpiGrid) {
+          const kpiObs = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !kpiDone) {
+              kpiDone = true;
+              document.querySelectorAll('.kpi-counter').forEach((el) => {
+                const target = parseFloat(el.getAttribute('data-target')) || 0;
+                const decimals = parseInt(el.getAttribute('data-decimals'), 10) || 0;
+                if (prefersReducedMotion) {
+                  el.textContent = target.toFixed(decimals);
+                  return;
+                }
+                const start = performance.now();
+                const duration = 1150;
+                function frame(now) {
+                  const p = Math.min(1, (now - start) / duration);
+                  const eased = 1 - Math.pow(1 - p, 3);
+                  el.textContent = (target * eased).toFixed(decimals);
+                  if (p < 1) requestAnimationFrame(frame);
+                }
+                requestAnimationFrame(frame);
+              });
+            }
+          }, { threshold: 0.2 });
+          kpiObs.observe(kpiGrid);
+        }
+
+        // Active Nav Link Indicator
+        const sectionIds = ['profil', 'pengalaman', 'process-lab', 'kompetensi', 'kontak'];
+        const navLinks = document.querySelectorAll('.top-nav-link');
+
+        function setActiveNav(activeId) {
+          navLinks.forEach((link) => {
+            const match = link.getAttribute('data-nav-link') === activeId;
+            if (match) {
+              link.classList.add('bg-sage-wash', 'text-sage', 'font-semibold');
+              link.classList.remove('text-muted');
+            } else {
+              link.classList.remove('bg-sage-wash', 'text-sage', 'font-semibold');
+              link.classList.add('text-muted');
+            }
+          });
+        }
+        setActiveNav('profil');
+
+        const secObs = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActiveNav(entry.target.id);
+          });
+        }, { threshold: 0.28 });
+
+        sectionIds.forEach((id) => {
+          const sec = document.getElementById(id);
+          if (sec) secObs.observe(sec);
+        });
+      }
+
+      /* --------------------------------------------------------------------
+         14. JOURNEY / EXPERIENCE BENTO GRID (FILTERABLE + SCHOOL DRAWER)
+         -------------------------------------------------------------------- */
+      function syncJourneyFilterStyles() {
+        document.querySelectorAll('.journey-filter-btn').forEach((btn) => {
+          const active = btn.getAttribute('data-journey-filter') === currentJourneyFilter;
+          btn.className = active
+            ? 'journey-filter-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition-all bg-sage text-[#FCFBF9] dark:text-[#161B18] shadow-sm'
+            : 'journey-filter-btn px-3.5 py-2 rounded-xl text-xs font-medium transition-all text-muted hover:text-main hover:bg-sage-wash';
+        });
+      }
+
+      function renderJourneyGrid() {
+        const grid = document.getElementById('journey-bento-grid');
+        if (!grid) return;
+
+        const filtered = JOURNEY_ITEMS.filter(
+          (item) => currentJourneyFilter === 'all' || item.category === currentJourneyFilter
+        );
+
+        grid.innerHTML = filtered.map((item) => {
+          const isFeatured = Boolean(item.featured);
+          const cardClass = isFeatured
+            ? `${item.span} bento-elevated bento-featured-sage p-7 sm:p-9`
+            : `${item.span} bento-card bento-hover p-6 sm:p-7 flex flex-col justify-between gap-5`;
+
+          const pillClass = item.category === 'education'
+            ? 'bg-sand-wash text-sand border border-sand-soft'
+            : 'bg-sage-wash text-sage border border-sage-soft';
+
+          const pointsHtml = item.points[currentLang].map((pt) => `
+            <li class="flex items-start gap-2.5 text-sm text-muted leading-relaxed">
+              <span class="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style="background: ${item.category === 'education' ? 'var(--sand)' : 'var(--sage)'};"></span>
+              <span>${pt}</span>
+            </li>
+          `).join('');
+
+          const tagsHtml = item.tags ? `
+            <div class="flex flex-wrap gap-2 pt-2">
+              ${item.tags[currentLang].map((t) => `<span class="px-3 py-1 rounded-full font-mono text-[11px] bg-sage-wash text-sage border border-sage-soft">${t}</span>`).join('')}
+            </div>
+          ` : '';
+
+          const schoolDrawerHtml = item.hasSchoolDrawer ? `
+            <div class="mt-4 pt-4 border-t border-soft">
+              <button type="button" id="school-drawer-btn" aria-expanded="${schoolDrawerOpen}" class="w-full flex items-center justify-between gap-3 text-left group">
+                <div>
+                  <div class="font-display text-xs font-semibold text-main group-hover:text-sage transition-colors">${I18N[currentLang].drawerTitle}</div>
+                  <div class="text-[11px] text-muted">${I18N[currentLang].drawerSub}</div>
+                </div>
+                <svg class="w-4 h-4 text-sage transition-transform duration-300 shrink-0 ${schoolDrawerOpen ? 'rotate-180' : ''}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="school-drawer-panel" class="${schoolDrawerOpen ? '' : 'hidden'} mt-4 space-y-3 text-xs">
+                <div class="p-3 rounded-2xl border border-soft" style="background: var(--bg-card-elevated);">
+                  <div class="flex items-center justify-between font-mono text-[11px] text-sand">
+                    <span>SMK Bina Mandiri Bekasi</span><span>2018 – 2020</span>
+                  </div>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span class="px-2 py-0.5 rounded-full bg-sage-wash text-sage">Rohis</span>
+                    <span class="px-2 py-0.5 rounded-full bg-sage-wash text-sage">Paskibra</span>
+                    <span class="px-2 py-0.5 rounded-full bg-sand-wash text-sand">PMI</span>
+                    <span class="px-2 py-0.5 rounded-full bg-sage-wash text-sage">Futsal</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-2xl border border-soft" style="background: var(--bg-card-elevated);">
+                  <div class="flex items-center justify-between font-mono text-[11px] text-sage">
+                    <span>SMP Bina Siswa Utama</span><span>2016 – 2018</span>
+                  </div>
+                  <div class="mt-2 flex flex-wrap gap-1.5">
+                    <span class="px-2 py-0.5 rounded-full bg-sand-wash text-sand">OSIS</span>
+                    <span class="px-2 py-0.5 rounded-full bg-sage-wash text-sage">Rohis</span>
+                    <span class="px-2 py-0.5 rounded-full bg-sage-wash text-sage">Futsal</span>
+                    <span class="px-2 py-0.5 rounded-full bg-sage-wash text-sage">Paskibra</span>
+                    <span class="px-2 py-0.5 rounded-full bg-sand-wash text-sand">Silat</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-2xl border border-soft" style="background: var(--bg-card-elevated);">
+                  <div class="font-mono text-[11px] text-main font-medium">SD MI Al Muhajirien Jakapermai</div>
+                  <div class="text-[11px] text-muted mt-0.5">${currentLang === 'id' ? 'Pendidikan Dasar • Kota Bekasi' : 'Elementary Education • Bekasi'}</div>
+                </div>
+              </div>
+            </div>
+          ` : '';
+
+          if (isFeatured) {
+            return `
+              <article class="${cardClass}">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                  <div class="lg:col-span-5 space-y-3">
+                    <div class="flex flex-wrap items-center gap-2.5">
+                      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full font-mono text-[11px] font-semibold ${pillClass}">
+                        <span class="w-2 h-2 rounded-full animate-soft-ping" style="background: var(--sage);"></span>
+                        <span>${item.badge[currentLang]}</span>
+                      </span>
+                      <span class="font-mono text-xs text-sage font-medium">${item.period[currentLang]}</span>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl sm:text-3xl text-main">${item.org}</h3>
+                    <div class="text-base font-semibold text-sage">${item.role[currentLang]}</div>
+                    <div class="text-xs font-mono text-muted">${item.location[currentLang]}</div>
+                    ${tagsHtml}
+                  </div>
+                  <div class="lg:col-span-7 lg:pl-6 lg:border-l border-soft">
+                    <ul class="space-y-3">${pointsHtml}</ul>
+                  </div>
+                </div>
+              </article>
+            `;
+          }
+
+          return `
+            <article class="${cardClass}">
+              <div class="space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="px-3 py-1 rounded-full font-mono text-[10.5px] font-semibold ${pillClass}">${item.badge[currentLang]}</span>
+                  <span class="font-mono text-[11px] text-muted">${item.period[currentLang]}</span>
+                </div>
+                <div>
+                  <h3 class="font-display font-bold text-xl text-main">${item.org}</h3>
+                  <div class="text-sm font-semibold text-sage mt-0.5">${item.role[currentLang]}</div>
+                  <div class="text-[11px] font-mono text-muted mt-1">${item.location[currentLang]}</div>
+                </div>
+                <ul class="space-y-2">${pointsHtml}</ul>
+              </div>
+              ${schoolDrawerHtml}
+            </article>
+          `;
+        }).join('');
+
+        const drawerBtn = document.getElementById('school-drawer-btn');
+        if (drawerBtn) {
+          drawerBtn.addEventListener('click', () => {
+            schoolDrawerOpen = !schoolDrawerOpen;
+            renderJourneyGrid();
+          });
+        }
+      }
+
+      function initJourneyFilters() {
+        document.querySelectorAll('.journey-filter-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            currentJourneyFilter = btn.getAttribute('data-journey-filter');
+            syncJourneyFilterStyles();
+            renderJourneyGrid();
+          });
+        });
+      }
+
+      /* --------------------------------------------------------------------
+         15. INTERACTIVE PROCESS LAB ENGINE
+         -------------------------------------------------------------------- */
+      const simState = { lean: true, sixSigma: true, workMeas: true, k3: true };
+      const cargoDots = [];
+
+      function syncSimModeUI() {
+        const bpiBtn = document.getElementById('sim-mode-bpi');
+        const outBtn = document.getElementById('sim-mode-outbound');
+        const activeCls = 'px-4 py-2 rounded-full text-xs font-semibold transition-all bg-sage text-[#FCFBF9] dark:text-[#161B18] shadow-sm';
+        const idleCls = 'px-4 py-2 rounded-full text-xs font-medium transition-all text-muted hover:text-main';
+
+        if (currentSimMode === 'bpi') {
+          bpiBtn.className = activeCls;
+          outBtn.className = idleCls;
+        } else {
+          outBtn.className = activeCls;
+          bpiBtn.className = idleCls;
+        }
+
+        PROCESS_MODES[currentSimMode].nodes.forEach((n, idx) => {
+          const t = document.getElementById(`node-title-${idx}`);
+          const s = document.getElementById(`node-sub-${idx}`);
+          if (t) t.textContent = n.title;
+          if (s) s.textContent = n.sub;
+        });
+      }
+
+      function syncSimSwitches() {
+        document.querySelectorAll('[data-sim-toggle]').forEach((btn) => {
+          const key = btn.getAttribute('data-sim-toggle');
+          const on = simState[key];
+          btn.setAttribute('aria-pressed', String(on));
+          const track = btn.querySelector('.sage-switch-track');
+          const thumb = btn.querySelector('.sage-switch-thumb');
+
+          if (on) {
+            btn.className = 'sim-switch-btn w-full text-left p-4 rounded-[18px] border border-sage-soft bg-sage-wash transition-all flex items-center justify-between gap-4';
+            track.style.backgroundColor = 'var(--sage)';
+            thumb.style.transform = 'translateX(20px)';
+          } else {
+            btn.className = 'sim-switch-btn w-full text-left p-4 rounded-[18px] border border-soft transition-all flex items-center justify-between gap-4';
+            btn.style.backgroundColor = 'var(--bg-card)';
+            track.style.backgroundColor = 'var(--svg-track)';
+            thumb.style.transform = 'translateX(0px)';
+          }
+        });
+      }
+
+      function updateStageDetails(idx) {
+        const list = PROCESS_MODES[currentSimMode].details;
+        const item = list[idx] || list[0];
+        document.getElementById('stage-info-title').textContent = item.title[currentLang];
+        document.getElementById('stage-info-desc').textContent = item.desc[currentLang];
+        document.getElementById('stage-info-badge').textContent = item.badge;
+
+        document.querySelectorAll('.sim-node').forEach((node) => {
+          const nIdx = parseInt(node.getAttribute('data-stage'), 10);
+          const rect = node.querySelector('.node-rect');
+          rect.setAttribute('stroke', nIdx === idx ? 'var(--sage)' : 'var(--sage-border)');
+          rect.setAttribute('stroke-width', nIdx === idx ? '2.5' : '1.5');
+        });
+      }
+
+      function updateSimMetrics() {
+        let acc = 91.5;
+        let cycle = 56;
+        let ppm = 5400;
+        let k3 = 76;
+
+        if (simState.lean) { acc += 1.4; cycle -= 13; ppm -= 900; k3 += 4; }
+        if (simState.sixSigma) { acc += 4.5; cycle -= 3; ppm -= 3120; k3 += 2; }
+        if (simState.workMeas) { acc += 1.1; cycle -= 11; ppm -= 650; k3 += 3; }
+        if (simState.k3) { acc += 1.1; cycle -= 5; ppm -= 550; k3 += 15; }
+
+        acc = Math.min(99.8, acc);
+        cycle = Math.max(22, cycle);
+        ppm = Math.max(180, ppm);
+        k3 = Math.min(100, k3);
+
+        document.getElementById('metric-acc-val').textContent = `${acc.toFixed(1)}%`;
+        document.getElementById('metric-acc-bar').style.width = `${acc}%`;
+
+        document.getElementById('metric-cycle-val').textContent = `${cycle}s`;
+        document.getElementById('metric-cycle-bar').style.width = `${Math.min(100, (cycle / 60) * 100)}%`;
+
+        document.getElementById('metric-ppm-val').textContent = `${ppm.toLocaleString('en-US')} PPM`;
+        document.getElementById('metric-ppm-bar').style.width = `${Math.min(100, Math.max(6, (ppm / 5600) * 100))}%`;
+
+        document.getElementById('metric-k3-val').textContent = `${k3}%`;
+        document.getElementById('metric-k3-bar').style.width = `${k3}%`;
+
+        const activeCount = Object.values(simState).filter(Boolean).length;
+        const dash = document.getElementById('svg-flow-dash');
+        if (dash) dash.style.animationDuration = `${(3.8 - activeCount * 0.48).toFixed(2)}s`;
+
+        const reworkArc = document.getElementById('svg-rework-arc');
+        const reworkTxt = document.getElementById('svg-rework-label');
+        if (reworkArc && reworkTxt) {
+          reworkArc.setAttribute('opacity', simState.sixSigma ? '0.18' : '0.82');
+          reworkTxt.setAttribute('opacity', simState.sixSigma ? '0.28' : '0.88');
+        }
+
+        const modeName = currentSimMode === 'bpi'
+          ? (currentLang === 'id' ? 'Gudang Teknik (PT Bakrie Pipe Industries)' : 'Technical Warehouse (PT Bakrie Pipe Industries)')
+          : (currentLang === 'id' ? 'Logistik Outbound (PT GoTo & PT DSV)' : 'Outbound Logistics (PT GoTo & PT DSV)');
+
+        const insight = document.getElementById('sim-insight-text');
+        if (currentLang === 'id') {
+          if (activeCount === 4) {
+            insight.textContent = `Alur ${modeName} berada pada performa optimal: kombinasi Lean Manufacturing, Six Sigma QC, Work Measurement, serta Standar K3 & 5R menghasilkan akurasi ${acc.toFixed(1)}%, siklus ${cycle}s, dan kepatuhan K3 ${k3}%.`;
+          } else if (activeCount === 0) {
+            insight.textContent = `Mode manual pada ${modeName} mencatat waktu siklus ${cycle}s dengan defect ${ppm} PPM. Aktifkan saklar Teknik Industri untuk mempercepat alur sekaligus menjaga presisi.`;
+          } else {
+            insight.textContent = `${activeCount} dari 4 prinsip aktif pada ${modeName}: akurasi mencapai ${acc.toFixed(1)}% dengan defect ${ppm} PPM. Aktifkan prinsip tersisa untuk keseimbangan kecepatan dan keselamatan.`;
+          }
+        } else {
+          if (activeCount === 4) {
+            insight.textContent = `${modeName} is operating at peak balance: combining Lean Manufacturing, Six Sigma QC, Work Measurement, and K3 & 5S sustains ${acc.toFixed(1)}% accuracy, ${cycle}s cycle time, and ${k3}% K3 compliance.`;
+          } else if (activeCount === 0) {
+            insight.textContent = `Manual baseline in ${modeName} shows ${cycle}s cycle time and ${ppm} PPM defects. Enable Industrial Engineering toggles on the left to optimize flow stability.`;
+          } else {
+            insight.textContent = `${activeCount} of 4 principles active in ${modeName}: accuracy reaches ${acc.toFixed(1)}% at ${ppm} PPM defects. Toggle the remaining switches for optimal synergy.`;
+          }
+        }
+      }
+
+      function initProcessLab() {
+        const cargoLayer = document.getElementById('svg-cargo-layer');
+        if (cargoLayer) {
+          for (let i = 0; i < 7; i++) {
+            const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            c.setAttribute('r', '5.5');
+            cargoLayer.appendChild(c);
+            cargoDots.push({ el: c, p: i / 7, flag: i % 3 === 0 });
+          }
+
+          let prev = performance.now();
+          function stepCargo(now) {
+            const dt = Math.min(0.05, (now - prev) / 1000);
+            prev = now;
+            const speed = prefersReducedMotion
+              ? 0
+              : 0.065 + (simState.lean ? 0.036 : 0) + (simState.workMeas ? 0.028 : 0);
+
+            cargoDots.forEach((d) => {
+              d.p = (d.p + dt * speed) % 1;
+              const x = 92 + d.p * 736;
+              let y = 96;
+              if (!simState.k3 && !prefersReducedMotion) y += Math.sin(d.p * 20) * 4;
+
+              d.el.setAttribute('cx', x.toFixed(1));
+              d.el.setAttribute('cy', y.toFixed(1));
+              d.el.setAttribute('fill', (!simState.sixSigma && d.flag && d.p > 0.24 && d.p < 0.72) ? 'var(--sand)' : 'var(--sage)');
+            });
+
+            if (!prefersReducedMotion) requestAnimationFrame(stepCargo);
+          }
+          requestAnimationFrame(stepCargo);
+        }
+
+        document.getElementById('sim-mode-bpi').addEventListener('click', () => {
+          currentSimMode = 'bpi';
+          syncSimModeUI();
+          updateStageDetails(selectedStageIdx);
+          updateSimMetrics();
+        });
+        document.getElementById('sim-mode-outbound').addEventListener('click', () => {
+          currentSimMode = 'outbound';
+          syncSimModeUI();
+          updateStageDetails(selectedStageIdx);
+          updateSimMetrics();
+        });
+
+        document.querySelectorAll('[data-sim-toggle]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-sim-toggle');
+            simState[key] = !simState[key];
+            syncSimSwitches();
+            updateSimMetrics();
+          });
+        });
+
+        document.getElementById('sim-reset-base').addEventListener('click', () => {
+          simState.lean = false; simState.sixSigma = false; simState.workMeas = false; simState.k3 = false;
+          syncSimSwitches();
+          updateSimMetrics();
+        });
+        document.getElementById('sim-set-optimal').addEventListener('click', () => {
+          simState.lean = true; simState.sixSigma = true; simState.workMeas = true; simState.k3 = true;
+          syncSimSwitches();
+          updateSimMetrics();
+        });
+
+        document.querySelectorAll('.sim-node').forEach((node) => {
+          node.addEventListener('click', () => {
+            selectedStageIdx = parseInt(node.getAttribute('data-stage'), 10);
+            updateStageDetails(selectedStageIdx);
+          });
+        });
+
+        syncSimModeUI();
+        syncSimSwitches();
+        updateStageDetails(selectedStageIdx);
+        updateSimMetrics();
+      }
+
+      /* --------------------------------------------------------------------
+         16. 5-AXIS SVG RADAR CHART & 23 INTERACTIVE SKILL CHIPS
+         -------------------------------------------------------------------- */
+      function renderRadar() {
+        const grid = document.getElementById('radar-grid-layer');
+        const area = document.getElementById('radar-area');
+        const points = document.getElementById('radar-points-layer');
+        const tooltip = document.getElementById('radar-tooltip');
+        const ttName = document.getElementById('radar-tt-name');
+        const ttVal = document.getElementById('radar-tt-val');
+        const ttCtx = document.getElementById('radar-tt-ctx');
+        const container = document.getElementById('radar-container');
+        if (!grid || !area || !points) return;
+
+        const cx = 190, cy = 172, maxR = 100, count = RADAR_AXES.length;
+        const pt = (i, r) => {
+          const a = (Math.PI * 2 * i) / count - Math.PI / 2;
+          return { x: cx + Math.cos(a) * r, y: cy + Math.sin(a) * r };
+        };
+
+        let gridSvg = '';
+        [0.25, 0.5, 0.75, 1].forEach((scale) => {
+          const coords = RADAR_AXES.map((_, i) => {
+            const p = pt(i, maxR * scale);
+            return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+          }).join(' ');
+          gridSvg += `<polygon points="${coords}" fill="none" stroke="var(--sage-border)" stroke-width="1" stroke-dasharray="${scale === 1 ? 'none' : '3 4'}" />`;
+        });
+        RADAR_AXES.forEach((_, i) => {
+          const p = pt(i, maxR);
+          gridSvg += `<line x1="${cx}" y1="${cy}" x2="${p.x.toFixed(1)}" y2="${p.y.toFixed(1)}" stroke="var(--sage-border)" stroke-width="1" />`;
+        });
+        grid.innerHTML = gridSvg;
+
+        const polyCoords = RADAR_AXES.map((ax, i) => {
+          const p = pt(i, maxR * (ax.score / 100));
+          return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+        }).join(' ');
+        area.setAttribute('points', polyCoords);
+
+        let ptsSvg = '';
+        RADAR_AXES.forEach((ax, i) => {
+          const p = pt(i, maxR * (ax.score / 100));
+          const lp = pt(i, maxR + 33);
+          const isActive = ax.id === activeRadarId;
+          const lines = ax.short[currentLang].split('\n');
+
+          ptsSvg += `
+            <g class="radar-trigger cursor-pointer" data-axis-id="${ax.id}">
+              <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="16" fill="transparent" />
+              <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${isActive ? 6.5 : 4.8}" fill="${isActive ? 'var(--sand)' : 'var(--sage)'}" stroke="var(--bg-card)" stroke-width="2" />
+              <text x="${lp.x.toFixed(1)}" y="${(lp.y - 4).toFixed(1)}" text-anchor="middle" fill="${isActive ? 'var(--sage)' : 'var(--text-secondary)'}" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: ${isActive ? '700' : '500'};">
+                ${lines.map((line, li) => `<tspan x="${lp.x.toFixed(1)}" dy="${li === 0 ? 0 : 12.5}">${line}</tspan>`).join('')}
+              </text>
+            </g>
+          `;
+        });
+        points.innerHTML = ptsSvg;
+
+        points.querySelectorAll('.radar-trigger').forEach((g) => {
+          const id = g.getAttribute('data-axis-id');
+          const axis = RADAR_AXES.find((a) => a.id === id);
+
+          g.addEventListener('click', () => {
+            activeRadarId = id;
+            renderRadar();
+            updateRadarPanel();
+          });
+
+          g.addEventListener('mouseenter', (e) => {
+            if (!tooltip || !axis || !container) return;
+            ttName.textContent = axis.title[currentLang];
+            ttVal.textContent = `${axis.score} / 100`;
+            ttCtx.textContent = axis.desc[currentLang];
+            tooltip.classList.remove('hidden');
+            const rect = container.getBoundingClientRect();
+            const left = Math.min(rect.width - 216, Math.max(6, e.clientX - rect.left + 10));
+            const top = Math.max(6, e.clientY - rect.top - 78);
+            tooltip.style.left = `${left}px`;
+            tooltip.style.top = `${top}px`;
+          });
+
+          g.addEventListener('mouseleave', () => {
+            if (tooltip) tooltip.classList.add('hidden');
+          });
+        });
+
+        updateRadarPanel();
+      }
+
+      function updateRadarPanel() {
+        const axis = RADAR_AXES.find((a) => a.id === activeRadarId) || RADAR_AXES[0];
+        document.getElementById('radar-active-title').textContent = axis.title[currentLang];
+        document.getElementById('radar-active-score').textContent = `${axis.score} / 100`;
+        document.getElementById('radar-active-desc').textContent = axis.desc[currentLang];
+      }
+
+      function syncSkillTabStyles() {
+        document.querySelectorAll('.skill-tab-btn').forEach((btn) => {
+          const active = btn.getAttribute('data-skill-tab') === currentSkillTab;
+          btn.className = active
+            ? 'skill-tab-btn px-4 py-2 rounded-full text-xs font-semibold transition-all bg-sage text-[#FCFBF9] dark:text-[#161B18] shadow-sm'
+            : 'skill-tab-btn px-4 py-2 rounded-full text-xs font-medium transition-all text-muted hover:text-main';
+        });
+      }
+
+      function renderSkillPills() {
+        const container = document.getElementById('skills-pill-list');
+        if (!container) return;
+
+        const list = SKILLS.filter((s) => s.tab === currentSkillTab);
+        if (!list.some((s) => s.id === selectedSkillId) && list.length > 0) {
+          selectedSkillId = list[0].id;
+        }
+
+        container.innerHTML = list.map((skill) => {
+          const active = skill.id === selectedSkillId;
+          const classes = active
+            ? 'bg-sage text-[#FCFBF9] dark:text-[#161B18] border-transparent font-semibold shadow-sm'
+            : 'text-main border-soft hover:border-sage-soft hover:bg-sage-wash';
+
+          return `
+            <button type="button" data-skill-id="${skill.id}" class="skill-pill px-4 py-2 rounded-full border text-xs sm:text-sm transition-all active:scale-[0.98] ${classes}" style="${active ? '' : 'background: var(--bg-card);'}">
+              ${skill.name[currentLang]}
+            </button>
+          `;
+        }).join('');
+
+        container.querySelectorAll('.skill-pill').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            selectedSkillId = btn.getAttribute('data-skill-id');
+            const skill = SKILLS.find((s) => s.id === selectedSkillId);
+            if (skill) {
+              activeRadarId = skill.cluster;
+              renderRadar();
+            }
+            renderSkillPills();
+            updateSkillContext(selectedSkillId);
+          });
+        });
+
+        updateSkillContext(selectedSkillId);
+      }
+
+      function updateSkillContext(id) {
+        const skill = SKILLS.find((s) => s.id === id) || SKILLS[0];
+        const axis = RADAR_AXES.find((a) => a.id === skill.cluster) || RADAR_AXES[0];
+
+        document.getElementById('skill-ctx-name').textContent = skill.name[currentLang];
+        document.getElementById('skill-ctx-cluster').textContent = axis.title[currentLang];
+        document.getElementById('skill-ctx-desc').textContent = skill.desc[currentLang];
+        document.getElementById('skill-ctx-where').textContent = skill.where;
+      }
+
+      function initSkillTabs() {
+        document.querySelectorAll('.skill-tab-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            currentSkillTab = btn.getAttribute('data-skill-tab');
+            syncSkillTabStyles();
+            renderSkillPills();
+          });
+        });
+      }
+
+      /* --------------------------------------------------------------------
+         17. HOBBIES MICRO-ANIMATIONS, COPY BUTTONS & MOBILE NAVIGATION
+         -------------------------------------------------------------------- */
+      function initPersonalAndNav() {
+        const fbBtn = document.getElementById('hobby-football-btn');
+        const fbWrap = document.getElementById('football-icon-wrap');
+        const fbCap = document.getElementById('football-caption');
+        let fbOn = false;
+        fbBtn.addEventListener('click', () => {
+          fbOn = !fbOn;
+          fbWrap.classList.toggle('football-bouncing', fbOn);
+          fbCap.textContent = fbOn ? 'Match ON' : 'Teamwork';
+        });
+
+        const mBtn = document.getElementById('hobby-music-btn');
+        const mWrap = document.getElementById('music-eq-wrap');
+        const mCap = document.getElementById('music-caption');
+        let mPlaying = true;
+        mBtn.addEventListener('click', () => {
+          mPlaying = !mPlaying;
+          mWrap.classList.toggle('eq-paused', !mPlaying);
+          mCap.textContent = mPlaying ? 'Playing' : 'Paused';
+        });
+
+        document.querySelectorAll('.copy-trigger').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            copyText(btn.getAttribute('data-copy-text'));
+          });
+        });
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-nav-link').forEach((a) => {
+          a.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+      }
+
+      /* --------------------------------------------------------------------
+         BOOTSTRAP APPLICATION
+         -------------------------------------------------------------------- */
+      window.addEventListener('DOMContentLoaded', () => {
+        initThemeToggle();
+        initOrbitShowcase();
+        initJourneyFilters();
+        initProcessLab();
+        initSkillTabs();
+        initPersonalAndNav();
+        initBentoGlow();
+        initParallaxAndProgress();
+        initObservers();
+
+        document.getElementById('lang-id-btn').addEventListener('click', () => applyLanguage('id'));
+        document.getElementById('lang-en-btn').addEventListener('click', () => applyLanguage('en'));
+
+        applyLanguage('id');
+      });
+    })();
+  </script>
+</body>
+</html>
